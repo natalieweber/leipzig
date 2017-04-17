@@ -1,0 +1,478 @@
+%%
+%% This is file `leipzig.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% leipzig.dtx  (with options: `package')
+%% ----------------------------------------------------------------
+%% leipzig --- A package to typeset and index linguistic gloss abbreviations.
+%% E-mail: natalie.a.weber@gmail.com
+%% Released under the LaTeX Project Public License v1.3c or later
+%% See http://www.latex-project.org/lppl.txt
+%% ----------------------------------------------------------------
+%% 
+%% Copyright (C) 2017 by Natalie Weber <natalie.a.weber@gmail.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%% 
+%%   http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Natalie Weber.
+%% 
+%% This work consists of the file leipzig.dtx,
+%% and the derived files
+%%                                 README.md,
+%%                                 leipzig.ins,
+%%                                 leipzig.tex,
+%%                                 leipzig.sty, and
+%%                                 leipzig.pdf
+%% 
+\NeedsTeXFormat{LaTeX2e}[1996/10/24]%
+\ProvidesPackage{leipzig}%
+    [2017/04/16 v2.b.1 (beta) Leipzig package for linguistic abbreviations]%
+
+
+\newif\ifleipzig@glossaries\leipzig@glossariestrue
+\newif\ifleipzig@noglossaries\leipzig@noglossariesfalse
+\newif\ifleipzig@sepglosses\leipzig@sepglossesfalse
+\newif\ifleipzig@nostandards\leipzig@nostandardsfalse
+\newif\ifleipzigdonotindex\leipzigdonotindexfalse
+\newcommand*{\@leipzig@default@style}{leipziginline}
+\newif\ifleipzighyper\leipzighyperfalse
+\newif\ifleipzignonumbers\leipzignonumberstrue
+\newcommand{\leipzigfont}[1]{\textsc{#1}}%
+\DeclareOption{glossaries}{\leipzig@glossariestrue}
+\DeclareOption{noglossaries}{%
+  \leipzig@glossariesfalse
+  \leipzig@noglossariestrue
+}%
+\DeclareOption{glosses}{\leipzig@sepglossestrue}
+\DeclareOption{nostandards}{\leipzig@nostandardstrue}
+\DeclareOption{block}{%
+  \renewcommand*{\@leipzig@default@style}{leipzigalttree}%
+}%
+\DeclareOption{mcolblock}{%
+  \renewcommand*{\@leipzig@default@style}{leipzigmcolalttree}%
+}%
+\DeclareOption{inline}{%
+  \renewcommand*{\@leipzig@default@style}{leipziginline}%
+}%
+\DeclareOption{leipzighyper}{\leipzighypertrue}
+\DeclareOption{leipzignohyper}{\leipzighyperfalse}
+\DeclareOption*{%
+    \PassOptionsToPackage{\CurrentOption}{glossaries}%
+}%
+\ProcessOptions\relax
+\ifleipzig@noglossaries\relax
+\else
+  \ifleipzig@glossaries
+    \@ifpackageloaded{glossaries}%
+      {\relax}%
+      {\IfFileExists{glossaries.sty}{%
+        \RequirePackage{glossaries}%
+        }%
+        {\PackageError{leipzig}%
+          {glossaries.sty not found.}%
+          {Install glossaries.sty or use [noglossaries] option.}%
+        }%
+        \IfFileExists{glossary-tree.sty}{%
+          \RequirePackage{glossary-tree}%
+        }%
+        {\PackageWarning{leipzig}%
+          {glossary-tree.sty not found.}%
+          {Install glossary-tree.sty to use leipzigalttree style.}%
+        }%
+        \IfFileExists{glossary-mcols.sty}{%
+          \RequirePackage{glossary-mcols}%
+        }%
+        {\PackageWarning{leipzig}%
+          {glossary-mcols.sty not found.}%
+          {Install glossary-mcols.sty to use leipzigmcolalttree style.}%
+        }%
+        \IfFileExists{glossary-inline.sty}{%
+          \RequirePackage{glossary-inline}%
+        }%
+        {\PackageWarning{leipzig}%
+          {glossary-inline.sty not found.}%
+          {Install glossary-inline.sty to use leipziginline style.}%
+        }%
+      }%
+  \fi
+\fi
+\@ifpackageloaded{glossaries}{%
+  \newcommand*{\leipzigtype}{\glsdefaulttype}%
+  \newcommand{\leipzigname}{Abbreviations}%
+  \providecommand*{\printglosses}[1][]{}%
+  \newcommand{\firstleipzigfont}[1]{\leipzigfont{#1}}%
+  \newif\ifleipzigdesccapitalize\leipzigdesccapitalizefalse
+  \newcommand*{\leipzig@glossentrydesc}[1]{%
+    \ifleipzigdesccapitalize
+      \expandafter\ifx#1\nopostdesc
+        \glossentrydesc{#1}%
+      \else\Glossentrydesc{#1}%
+      \fi
+    \else
+      \glossentrydesc{#1}%
+    \fi
+  }%
+  \newcommand*{\glspostnamespace}{\space}%
+}{}%
+\@ifpackageloaded{glossaries}{%
+  \ifleipzig@sepglosses
+    \newglossary[lpz]{leipzig}{lzs}{lzo}{\leipzigname}%
+    \renewcommand*{\leipzigtype}{leipzig}%
+    \newcommand*{\gls@tr@set@leipzig@toctitle}{%
+      \translatelet{\glossarytoctitle}{Abbreviations}%
+    }%
+  \else
+    \let\glossaryname\leipzigname
+  \fi
+  \DeclareAcronymList{\leipzigtype}%
+    \newacronymstyle{long-lpz-short}%
+    {%
+      \GlsUseAcrEntryDispStyle{long-short}%
+    }%
+    {%
+      \GlsUseAcrStyleDefs{long-short}%
+      \renewcommand{\acronymfont}[1]{\leipzigfont{##1}}%
+      \renewcommand{\firstacronymfont}[1]{\firstleipzigfont{##1}}%
+      \renewcommand*{\acrpluralsuffix}{\glstextup{\glspluralsuffix}}%
+    }%
+   \setacronymstyle{long-lpz-short}
+\AtBeginDocument{%
+  \if\@glossary@default@style\relax
+    \setglossarystyle{\@leipzig@default@style}%
+  \fi
+  \ifx\@leipzig@default@style\relax
+    \renewcommand*{\printglosses}[1][]{%
+      \printglossary[type=\leipzigtype,#1]%
+    }%
+  \else
+    \ifleipzignonumbers
+      \renewcommand*{\printglosses}[1][]{%
+        \printglossary[type=\leipzigtype,%
+          style=\@leipzig@default@style,%
+          nonumberlist,#1]
+      }%
+    \else
+      \renewcommand*{\printglosses}[1][]{%
+        \printglossary[type=\leipzigtype,%
+          style=\@leipzig@default@style,#1]
+      }%
+    \fi
+  \fi
+  \renewcommand*{\printglossaries}{%
+    \forallglossaries{\@@glo@type}{%
+      \edef\tempa{\@@glo@type}%
+      \edef\tempb{\leipzigtype}%
+      \ifx\tempa\tempb%
+        \printglosses%
+      \else
+        \printglossary[type=\@@glo@type]%
+      \fi%
+    }%
+  }%
+}%
+}%
+{\relax}%
+\@ifpackageloaded{glossaries}{%
+  \forallglossaries[\leipzigtype]{\@@glo@type}{%
+    \glsnogroupskiptrue
+    \glsnopostdottrue
+  }%
+}{\relax}%
+\@ifpackageloaded{glossary-tree}{%
+  \newglossarystyle{leipzigalttree}{%
+    \setglossarystyle{alttree}%
+      \renewenvironment{theglossary}%
+      {\def\@gls@prevlevel{-1}%
+      \mbox{}\par
+      \vspace{-\baselineskip}%
+      }%
+      {\par}%
+    \renewcommand*{\glstreenamefmt}[1]{##1}
+    \renewcommand{\glossentry}[2]{%
+      \ifnum\@gls@prevlevel=0\relax
+      \else
+         \settowidth{\glstreeindent}{%
+           \glstreenamefmt{\@glswidestname\glspostnamespace}%
+         }%
+      \fi
+      \hangindent\glstreeindent
+      \parindent\glstreeindent
+      \makebox[0pt][r]{%
+        \glstreenamebox{\glstreeindent}{%
+          \glsentryitem{##1}\glstreenamefmt{%
+            \glstarget{##1}{\glossentryname{##1}}%
+          }%
+        }%
+      }%
+      \ifglshassymbol{##1}{(\glossentrysymbol{##1})\space}{}%
+      \leipzig@glossentrydesc{##1}\glspostdescription\space ##2\par
+      \def\@gls@prevlevel{0}%
+    }%
+    \renewcommand{\subglossentry}[3]{%
+      \ifnum##1=1\relax
+        \glssubentryitem{##2}%
+      \fi
+      \ifnum\@gls@prevlevel=##1\relax
+      \else
+        \@ifundefined{@glswidestname\romannumeral##1}{%
+          \settowidth{\gls@tmplen}{%
+            \glstreenamefmt{\@glswidestname\glspostnamespace}}%
+          }{%
+          \settowidth{\gls@tmplen}{\glstreenamefmt{%
+            \csname @glswidestname\romannumeral##1\endcsname
+            \glspostnamespace}}%
+          }%
+        \ifnum\@gls@prevlevel<##1\relax
+           \setlength\glstreeindent\gls@tmplen
+           \addtolength\glstreeindent\parindent
+           \parindent\glstreeindent
+        \else
+           \@ifundefined{@glswidestname\romannumeral\@gls@prevlevel}{%
+             \settowidth{\glstreeindent}{\glstreenamefmt{%
+                \@glswidestname\glspostnamespace}}}{%
+             \settowidth{\glstreeindent}{\glstreenamefmt{%
+                \csname @glswidestname\romannumeral\@gls@prevlevel
+                   \endcsname\glspostnamespace}}}%
+           \addtolength\parindent{-\glstreeindent}%
+           \setlength\glstreeindent\parindent
+        \fi
+      \fi
+      \hangindent\glstreeindent
+      \makebox[0pt][r]{\glstreenamebox{\gls@tmplen}{%
+        \glstreenamefmt{\glstarget{##2}{\glossentryname{##2}}}}}%
+      \ifglshassymbol{##2}{(\glossentrysymbol{##2})\space}{}%
+      \leipzig@glossentrydesc{##2}\glspostdescription\space ##3\par
+      \def\@gls@prevlevel{##1}%
+    }%
+  }%
+}%
+{\relax}%
+\@ifpackageloaded{glossary-tree}{%
+  \@ifpackageloaded{glossary-mcols}{%
+    \newglossarystyle{leipzigmcolalttree}{%
+      \setglossarystyle{leipzigalttree}%
+      \renewenvironment{theglossary}%
+      {%
+        \begin{multicols}{\glsmcols}%
+        \raggedcolumns
+        \def\@gls@prevlevel{-1}%
+        \mbox{}\par
+      \vspace{-\baselineskip}%
+      }%
+      {\par
+      \end{multicols}}%
+    }%
+  }%
+  {\relax}%
+}%
+{\relax}%
+\@ifpackageloaded{glossary-inline}{% if glossary-inline loaded
+  \@ifpackagelater{glossaries}{2012/05/22}{%
+  \newglossarystyle{leipziginline}{%
+    \setglossarystyle{inline}%
+    \renewcommand{\glossentry}[2]{%
+      \glsinlinedopostchild
+      \gls@inlinesep
+      \glsentryitem{##1}%
+      \glsinlinenameformat{##1}{%
+        \glossentryname{##1}%
+      }%
+     \ifglsdescsuppressed{##1}%
+     {%
+        \glsinlineemptydescformat
+        {%
+           \glossentrysymbol{##1}%
+        }%
+        {%
+          ##2%
+        }%
+      }%
+      {%
+        \ifglshasdesc{##1}%
+        {\glsinlinedescformat{\leipzig@glossentrydesc{##1}}{\glossentrysymbol{##1}}{##2}}%
+        {\glsinlineemptydescformat{\glossentrysymbol{##1}}{##2}}%
+      }%
+      \ifglshaschildren{##1}%
+      {%
+         \glsresetsubentrycounter
+         \glsinlineparentchildseparator
+         \def\gls@inlinesubsep{}%
+         \def\gls@inlinepostchild{\glsinlinepostchild}%
+      }%
+      {}%
+      \def\gls@inlinesep{\glsinlineseparator}%
+    }%
+    \renewcommand{\subglossentry}[3]{%
+      \gls@inlinesubsep%
+      \glsinlinesubnameformat{##2}{%
+         \glossentryname{##2}}%
+      \glssubentryitem{##2}%
+      \glsinlinesubdescformat{\leipzig@glossentrydesc{##2}}{\glossentrysymbol{##2}}{##3}%
+      \def\gls@inlinesubsep{\glsinlinesubseparator}%
+    }%
+    \renewcommand*{\glsinlineseparator}{,\space}% original: ;\space
+    \renewcommand*{\glsinlinesubseparator}{,\space}%
+    \renewcommand*{\glsinlineparentchildseparator}{:\space}%
+    \renewcommand*{\glsinlinepostchild}{}%
+    \renewcommand*{\glspostinline}{.\space}% original: \glspostdescription\space
+    \renewcommand*{\glsinlinenameformat}[2]{\glstarget{##1}{##2}}%
+    \renewcommand*{\glsinlinedescformat}[3]{%
+      \,=\,\linebreak[1]##1}% original: \space#1
+    \renewcommand*{\glsinlineemptydescformat}[2]{}%
+    \renewcommand*{\glsinlinesubnameformat}[2]{%
+      \glstarget{##1}{##2}}%original: \glstarget{#1}{}
+    \renewcommand*{\glsinlinesubdescformat}[3]{%
+      \,=\,\linebreak[1]##1}%original: #1
+    \renewcommand*{\glossarysection}[2][\@gls@title]{}% no section header
+    }%
+  }%
+  {%
+    \newglossarystyle{leipziginline}{%
+      \renewenvironment{theglossary}%
+        {%
+          \def\gls@inlinesep{}%
+          \def\gls@inlinesubsep{}%
+          \def\gls@inlineshortlongsep{%
+              \glsinlineshortlongseparator}% added this v1.0
+        }%
+        {\glspostinline}%
+      \renewcommand*{\glossaryheader}{}%
+      \renewcommand*{\glsgroupheading}[1]{}%
+      \renewcommand*{\glossaryentryfield}[5]{%
+        \gls@inlinesep
+        \glsentryitem{##1}\glstarget{##1}{##2}%
+        \def\glo@desc{##3}%
+        \def\@no@post@desc{\nopostdesc}%
+        \ifx\glo@desc\@no@post@desc
+        \else
+          \ifstrempty{##3}{}{\gls@inlineshortlongsep##3}%
+        \fi
+        \ifglshaschildren{##1}%
+        {%
+           \glsresetsubentrycounter
+           \glsinlineparentchildseparator
+           \def\gls@inlinesubsep{}%
+        }%
+        {}%
+        \def\gls@inlinesep{\glsinlineseparator}%
+      }%
+      \renewcommand*{\glossarysubentryfield}[6]{%
+        \gls@inlinesubsep%
+        \glstarget{##2}{}%
+        \glssubentryitem{##2}##4%
+        \def\gls@inlinesubsep{\glsinlinesubseparator}%
+      }%
+    \renewcommand*{\glsgroupskip}{}%
+    \newcommand*{\glsinlineshortlongseparator}{%
+      \,=\,\linebreak[1]}% added this v1.0
+    \renewcommand*{\glsinlineseparator}{,\space}% original: ;\space
+    \renewcommand*{\glsinlinesubseparator}{,\space}%
+    \renewcommand*{\glsinlineparentchildseparator}{:\space}%
+    \renewcommand*{\glspostinline}{.\space}% changed from .
+   % \renewcommand{\glsnamefont}[1]{\textsc{##1}}% removed v2.0
+    \renewcommand*{\glossarysection}[2][\@gls@title]{}% added v1.0
+    }%
+  }%
+}{\relax}%
+\@ifpackageloaded{glossaries}{%
+  \newcommand{\newleipzig}[4][]{%
+    \bgroup
+    {\newacronym[type=\leipzigtype,#1]{#2}{#3}{#4}}%
+    \@newleipzig#2\@nil%
+  }%
+  \def\@newleipzig#1#2\@nil{%
+    \ifleipzigdonotindex
+      \uppercase{\expandafter\gdef\csname #2}#2\endcsname{%
+        \leipzigfont{\glsentryshort{#1#2}}%
+      }%
+    \else
+      \ifleipzighyper
+        \uppercase{\expandafter\gdef\csname #1}#2\endcsname{%
+        \acrshort{#1#2}%
+      }%
+      \else
+        \uppercase{\expandafter\gdef\csname #1}#2\endcsname{%
+          \acrshort*{#1#2}%
+        }%
+      \fi
+    \fi
+    \egroup
+    }%
+\newcommand{\renewleipzig}[2][]{%
+  \if@leipzig@defined{#2}
+    {%
+     \renew@leipzig{#1}{#2}%
+    }%
+    {%
+     \PackageError{leipzig}
+       {Abbreviation `#2' undefined}
+       {No `#2` abbreviation is defined, use \string\newleipzig}%
+     \@gobbletwo
+    }%
+}
+\def\if@leipzig@defined#1{%
+  \uppercase\expandafter{\expandafter\ifcsname\@car#1\@nil}\@cdr#1\@nil\endcsname
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+}
+\def\renew@leipzig#1#2{%
+  \ifcsname glo@\glsdetoklabel{#2}@name\endcsname
+    \csundef{glo@\glsdetoklabel{#2}@name}
+  \fi
+  \if\relax\detokenize{#2}\relax
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+  {\newleipzig{#2}}{\newleipzig[#1]{#2}}%
+}%
+}{%
+  \newcommand{\newleipzig}[4][]{\@newleipzig(#3)#2\@nil}%
+  \newcommand{\renewleipzig}[4][]{%
+    \if@leipzig@defined{#2}
+      {%
+       \@newleipzig(#3)#2\@nil%
+      }%
+      {%
+       \PackageError{leipzig}
+         {Abbreviation `#2' undefined}
+         {No `#2` abbreviation is defined, use \string\newleipzig}%
+       \@gobbletwo
+      }%
+  }
+  \def\@newleipzig(#1)#2#3\@nil{%
+    \uppercase{\expandafter\gdef\csname #2}#3\endcsname{\leipzigfont{#1}}
+  }%
+}
+\@ifpackageloaded{glossaries}{%
+  \loadglsentries{leipzig.tex}%
+  }%
+  {\input{leipzig.tex}}%
+%% 
+%% Copyright (C) 2017 by Natalie Weber <natalie.a.weber@gmail.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%% 
+%%   http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% End of file `leipzig.sty'.

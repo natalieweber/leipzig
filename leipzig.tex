@@ -1,0 +1,167 @@
+%%
+%% This is file `leipzig.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% leipzig.dtx  (with options: `abbrvs')
+%% ----------------------------------------------------------------
+%% leipzig --- A package to typeset and index linguistic gloss abbreviations.
+%% E-mail: natalie.a.weber@gmail.com
+%% Released under the LaTeX Project Public License v1.3c or later
+%% See http://www.latex-project.org/lppl.txt
+%% ----------------------------------------------------------------
+%% 
+%% Copyright (C) 2017 by Natalie Weber <natalie.a.weber@gmail.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%% 
+%%   http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Natalie Weber.
+%% 
+%% This work consists of the file leipzig.dtx,
+%% and the derived files
+%%                                 README.md,
+%%                                 leipzig.ins,
+%%                                 leipzig.tex,
+%%                                 leipzig.sty, and
+%%                                 leipzig.pdf
+%% 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  This is a simple list of newcommands which create shortcuts for    %%
+%%  standard linguistic glosses (see the Leipzig Glossing rules,       %%
+%%  http://www.eva.mpg.de/lingua/resources/glossing-rules.php         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter\ifleipzig@nostandards\leipzigdonotindextrue\fi\makeatother
+
+\newleipzig{abl}{abl}{ab\-la\-tive} %ablative
+\newleipzig{abs}{abs}{ab\-so\-lu\-tive} %absolutive
+\newleipzig{acc}{acc}{ac\-cusa\-tive} %accusative
+\newleipzig{adj}{adj}{ad\-jec\-tive} %adjective
+\newleipzig{adv}{adv}{ad\-ver\-bial} %adverb(ial)
+\newleipzig{aarg}{a}{agent} %agent-like argument of
+\newleipzig{agr}{agr}{agreement} %agreement
+\newleipzig{all}{all}{al\-la\-tive} %allative
+\newleipzig{antip}{antip}{anti\-pas\-sive} %antipassive
+\newleipzig{appl}{appl}{ap\-plica\-tive} %applicative
+\newleipzig{art}{art}{article} %article
+\newleipzig{aux}{aux}{aux\-il\-iary} %auxiliary
+\newleipzig{ben}{ben}{bene\-fac\-tive} %benefactive
+\newleipzig{caus}{caus}{causative} %causative
+\newleipzig{clf}{clf}{clas\-si\-fi\-er} %classifier
+\newleipzig{com}{com}{comi\-ta\-tive} %comitative
+\newleipzig{comp}{comp}{com\-ple\-men\-ti\-zer} %complementizer
+\newleipzig{compl}{compl}{com\-ple\-tive} %completive
+\newleipzig{cond}{cond}{con\-di\-tion\-al} %conditional
+\newleipzig{cop}{cop}{cop\-u\-la} %copula
+\newleipzig{cvb}{cvb}{con\-verb} %converb
+\newleipzig{dat}{dat}{da\-tive} %dative
+\newleipzig{decl}{decl}{declarative}     %declarative
+\newleipzig{def}{def}{definite}          %definite
+\newleipzig{dem}{dem}{demonstrative}     %demonstrative
+\newleipzig{det}{det}{determiner}        %determiner
+\newleipzig{dist}{dist}{dis\-tal}          %distal
+\newleipzig{distr}{distr}{dis\-tri\-bu\-tive}  %distributive
+\newleipzig{du}{du}{dual}                %dual
+\newleipzig{dur}{dur}{dur\-ative}          %durative
+\newleipzig{erg}{erg}{erg\-ative}          %ergative
+\newleipzig{excl}{excl}{ex\-clu\-sive}       %exclusive
+\newleipzig{f}{f}{feminine}              %feminine
+\newleipzig{foc}{foc}{focus}             %focus
+\newleipzig{fut}{fut}{future}            %future
+\newleipzig{gen}{gen}{gen\-i\-tive}          %genitive
+\newleipzig{imp}{imp}{imperative}        %imperative
+\newleipzig{incl}{incl}{inclusive}       %inclusive
+\newleipzig{ind}{ind}{indicative}        %indicative
+\newleipzig{indf}{indf}{indefinite}      %indefinite
+\newleipzig{inf}{inf}{in\-fini\-tive}        %infinitive
+\newleipzig{ins}{ins}{instrumental}      %instrumental
+\newleipzig{intr}{intr}{in\-tran\-si\-tive}    %intransitive
+\newleipzig{ipfv}{ipfv}{im\-per\-fec\-tive}    %imperfective
+\newleipzig{irr}{irr}{ir\-real\-is}          %irrealis
+\newleipzig{loc}{loc}{loc\-ative}          %locative
+\newleipzig{m}{m}{masculine}             %masculine
+\newleipzig{n}{n}{neuter}                %neuter
+\newleipzig{neg}{neg}{negative}          %negation, negative
+\newleipzig{nmlz}{nmlz}{nom\-i\-nal\-iz\-er}    %nominalizer/nominalization
+\newleipzig{nom}{nom}{nom\-in\-ative}        %nominative
+\newleipzig{obj}{obj}{object}            %object
+\newleipzig{obl}{obl}{ob\-lique}           %oblique
+\newleipzig{pass}{pass}{passive}        %passive
+\newleipzig{parg}{p}{patient}            %patient
+\newleipzig{pfv}{pfv}{per\-fec\-tive}        %perfective
+\newleipzig{pl}{pl}{plural}              %plural
+\newleipzig{poss}{poss}{possessive}      %possessive
+\newleipzig{pred}{pred}{pred\-i\-ca\-tive}     %predicative
+\newleipzig{prf}{prf}{perfect}           %perfect
+\newleipzig{prs}{prs}{present}           %present
+\newleipzig{prog}{prog}{progressive}     %progressive
+\newleipzig{proh}{proh}{prohibitive}     %prohibitive
+\newleipzig{prox}{prox}{prox\-i\-mal}        %proximal/proximate
+\newleipzig{pst}{pst}{past}              %past
+\newleipzig{ptcp}{ptcp}{participle}      %participle
+\newleipzig{purp}{purp}{pur\-po\-sive}       %purposive
+\newleipzig{q}{q}{question particle}     %question particle/marker
+\newleipzig{quot}{quot}{quot\-ative}       %quotative
+\newleipzig{recp}{recp}{recip\-ro\-cal}      %reciprocal
+\newleipzig{refl}{refl}{reflexive}       %reflexive
+\newleipzig{rel}{rel}{relative}          %relative
+\newleipzig{res}{res}{re\-sul\-ta\-tive}       %resultative
+\newleipzig{sbj}{sbj}{subject}           %subject
+\newleipzig{subj}{subj}{sub\-junc\-tive}     %subjunctive
+\newleipzig{sg}{sg}{singular}            %singular
+\newleipzig{sarg}{s}{argument of intransitive verb}
+                                        %single argument of intransitive verb
+\newleipzig{top}{top}{topic}             %topic
+\newleipzig{tr}{tr}{tran\-si\-tive}          %transitive
+\newleipzig{voc}{voc}{voc\-ative}          %vocative
+
+%%  Define short versions of person + number:
+\newleipzig{first}{1}{first person}%
+\newleipzig{second}{2}{second person}%
+\newleipzig{third}{3}{third person}%
+
+\newcommand{\Fsg}{{\First}{\Sg}}%
+\newcommand{\Fdu}{{\First}{\Du}}%
+\newcommand{\Fpl}{{\First}{\Pl}}%
+\newcommand{\Ssg}{{\Second}{\Sg}}%
+\newcommand{\Sdu}{{\Second}{\Du}}%
+\newcommand{\Spl}{{\Second}{\Pl}}%
+\newcommand{\Tsg}{{\Third}{\Sg}}%
+\newcommand{\Tdu}{{\Third}{\Du}}%
+\newcommand{\Tpl}{{\Third}{\Pl}}%
+
+\makeatletter
+\@ifpackageloaded{glossaries}{% if glossary-tree loaded
+    \glsfindwidesttoplevelname[\leipzigtype]%
+}{\relax}%
+\leipzigdonotindexfalse
+\makeatother
+
+%% 
+%% Copyright (C) 2017 by Natalie Weber <natalie.a.weber@gmail.com>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%% 
+%%   http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% End of file `leipzig.tex'.
