@@ -38,7 +38,9 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1996/10/24]%
 \ProvidesPackage{leipzig}%
-    [2017/04/16 v2.b.1 (beta) Leipzig package for linguistic abbreviations]%
+    [2017/06/16 v2.0 Leipzig package for linguistic abbreviations]%
+
+
 
 
 \newif\ifleipzig@glossaries\leipzig@glossariestrue
@@ -46,7 +48,7 @@
 \newif\ifleipzig@sepglosses\leipzig@sepglossesfalse
 \newif\ifleipzig@nostandards\leipzig@nostandardsfalse
 \newif\ifleipzigdonotindex\leipzigdonotindexfalse
-\newcommand*{\@leipzig@default@style}{leipziginline}
+\newcommand*{\@leipzig@default@style}{inline}
 \newif\ifleipzighyper\leipzighyperfalse
 \newif\ifleipzignonumbers\leipzignonumberstrue
 \newcommand{\leipzigfont}[1]{\textsc{#1}}%
@@ -56,6 +58,7 @@
   \leipzig@noglossariestrue
 }%
 \DeclareOption{glosses}{\leipzig@sepglossestrue}
+\DeclareOption{leipzig}{\leipzig@sepglossestrue}
 \DeclareOption{nostandards}{\leipzig@nostandardstrue}
 \DeclareOption{block}{%
   \renewcommand*{\@leipzig@default@style}{leipzigalttree}%
@@ -64,7 +67,7 @@
   \renewcommand*{\@leipzig@default@style}{leipzigmcolalttree}%
 }%
 \DeclareOption{inline}{%
-  \renewcommand*{\@leipzig@default@style}{leipziginline}%
+  \renewcommand*{\@leipzig@default@style}{inline}%
 }%
 \DeclareOption{leipzighyper}{\leipzighypertrue}
 \DeclareOption{leipzignohyper}{\leipzighyperfalse}
@@ -103,7 +106,7 @@
         }%
         {\PackageWarning{leipzig}%
           {glossary-inline.sty not found.}%
-          {Install glossary-inline.sty to use leipziginline style.}%
+          {Install glossary-inline.sty to use inline style.}%
         }%
       }%
   \fi
@@ -112,6 +115,7 @@
   \newcommand*{\leipzigtype}{\glsdefaulttype}%
   \newcommand{\leipzigname}{Abbreviations}%
   \providecommand*{\printglosses}[1][]{}%
+  \providecommand*{\printleipzig}[1][]{}%
   \newcommand{\firstleipzigfont}[1]{\leipzigfont{#1}}%
   \newif\ifleipzigdesccapitalize\leipzigdesccapitalizefalse
   \newcommand*{\leipzig@glossentrydesc}[1]{%
@@ -134,7 +138,7 @@
       \translatelet{\glossarytoctitle}{Abbreviations}%
     }%
   \else
-    \let\glossaryname\leipzigname
+    \renewcommand*{\glossaryname}{\leipzigname}
   \fi
   \DeclareAcronymList{\leipzigtype}%
     \newacronymstyle{long-lpz-short}%
@@ -170,6 +174,7 @@
       }%
     \fi
   \fi
+  \let\printleipzig\printglosses
   \renewcommand*{\printglossaries}{%
     \forallglossaries{\@@glo@type}{%
       \edef\tempa{\@@glo@type}%
@@ -196,7 +201,6 @@
       \renewenvironment{theglossary}%
       {\def\@gls@prevlevel{-1}%
       \mbox{}\par
-      \vspace{-\baselineskip}%
       }%
       {\par}%
     \renewcommand*{\glstreenamefmt}[1]{##1}
@@ -257,6 +261,9 @@
       \def\@gls@prevlevel{##1}%
     }%
   }%
+  \newglossarystyle{block}{%
+    \setglossarystyle{leipzigalttree}%
+  }%
 }%
 {\relax}%
 \@ifpackageloaded{glossary-tree}{%
@@ -274,14 +281,34 @@
       {\par
       \end{multicols}}%
     }%
+  \newglossarystyle{mcolblock}{%
+    \setglossarystyle{leipzigmcolalttree}%
+  }%
   }%
   {\relax}%
 }%
 {\relax}%
 \@ifpackageloaded{glossary-inline}{% if glossary-inline loaded
+  \providecommand{\renewglossarystyle}[2]{%
+    \ifcsundef{@glsstyle@#1}%
+    {%
+      \PackageError{glossaries}{Glossary style `#1' isn't already defined}{}%
+    }%
+    {%
+      \csdef{@glsstyle@#1}{#2}%
+    }%
+  }
   \@ifpackagelater{glossaries}{2012/05/22}{%
-  \newglossarystyle{leipziginline}{%
-    \setglossarystyle{inline}%
+  \renewglossarystyle{inline}{%
+    \renewenvironment{theglossary}%
+      {%
+        \def\gls@inlinesep{}%
+        \def\gls@inlinesubsep{}%
+        \def\gls@inlinepostchild{}%
+      }%
+      {\glspostinline}%
+   \renewcommand*{\glossaryheader}{}%
+   \renewcommand*{\glsgroupheading}[1]{}%
     \renewcommand{\glossentry}[2]{%
       \glsinlinedopostchild
       \gls@inlinesep
@@ -322,6 +349,7 @@
       \glsinlinesubdescformat{\leipzig@glossentrydesc{##2}}{\glossentrysymbol{##2}}{##3}%
       \def\gls@inlinesubsep{\glsinlinesubseparator}%
     }%
+    \renewcommand*{\glsgroupskip}{}%
     \renewcommand*{\glsinlineseparator}{,\space}% original: ;\space
     \renewcommand*{\glsinlinesubseparator}{,\space}%
     \renewcommand*{\glsinlineparentchildseparator}{:\space}%
@@ -339,7 +367,7 @@
     }%
   }%
   {%
-    \newglossarystyle{leipziginline}{%
+    \renewglossarystyle{inline}{%
       \renewenvironment{theglossary}%
         {%
           \def\gls@inlinesep{}%

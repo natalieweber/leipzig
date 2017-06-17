@@ -14,4 +14,5 @@ To typeset the documentation, run
     pdflatex leipzig.dtx
 
 
-"# leipzig" 
+
+
