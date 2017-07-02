@@ -465,7 +465,7 @@ version 2005/12/01 or later.
 %\ex|\renewcommand{\leipzigfont}[1]{\textit{\MakeUppercase{#1}}}|\xe
 %
 %\renewcommand{\leipzigfont}[1]{{\textit{\MakeUppercase{#1}}}}%
-%This can occur anywhere in your document and it affects the short forms of of any following abbreviations, e.g.\ further instances of |{\Verbz}| from~\refp{ex:verbz} will expand to \Verbz{}.
+%This can occur anywhere in your document and it affects the short forms of any following abbreviations, e.g.\ further instances of |{\Verbz}| from~\refp{ex:verbz} will expand to \Verbz{}.
 %\renewcommand{\leipzigfont}[1]{\textsc{#1}}% 
 %
 %Note that the name of each glossary entry in the glossary will also be printed using the final redefinition of \cs{leipzigfont}. You can redefine \cs{glsnamefont} to control how glossary names are displayed. See \autoref{printglossary} for more information on glossary display.
@@ -538,7 +538,7 @@ version 2005/12/01 or later.
 % To disable or enable all hyperlinks to glossaries, use \cs{glsdisablehyper} or \cs{glsenablehyper}. The effect can be localised by placing the commands within a group. 
 %
 %\DescribeMacro{[nohypertypes]}
-%To disable hyperlinks only for certain glossaries, use the package option (from \glossaries{}) \hbox{[nohypertypes]}. This is a key that take a list of comma-separated glossary names as a value. Make sure you enclose the value in braces if it contains any commas. The values must be fully expanded, so something like \hbox{|[nohypertypes=\leipzigtype]|} \emph{won't} work. Instead use \hbox{|[nohypertypes=main]|} if the \hbox{[glosses]} option has not been used, or \hbox{|[nohypertypes=leipzig]|} if the \hbox{[glosses]} option has been used. Instead of or in addition to the package option \hbox{[nohypertypes]}, you can also use |\GlsDeclareNoHyperList{|\meta{list}|}|.
+%To disable hyperlinks only for certain glossaries, use the package option (from \glossaries{}) \hbox{[nohypertypes]}. This is a key that takes a list of comma-separated glossary names as a value. Make sure you enclose the value in braces if it contains any commas. The values must be fully expanded, so something like \hbox{|[nohypertypes=\leipzigtype]|} \emph{won't} work. Instead use \hbox{|[nohypertypes=main]|} if the \hbox{[glosses]} option has not been used, or \hbox{|[nohypertypes=leipzig]|} if the \hbox{[glosses]} option has been used. Instead of or in addition to the package option \hbox{[nohypertypes]}, you can also use |\GlsDeclareNoHyperList{|\meta{list}|}|.
 %
 %\DescribeMacro{[nohyperfirst]}
 %To disable hyperlinks only on the first use, use the package options (from \glossaries{})  \hbox{[nohyperfirst]}. This is a key that take a list of comma-separated glossary names as a value. Make sure you enclose the value in braces if it contains any commas.  
@@ -682,7 +682,7 @@ version 2005/12/01 or later.
 %\DescribeMacro{\glsinlinedescformat}
 %\DescribeMacro{\glsinlinesubdescformat}
 %\DescribeMacro{\glsinlineemptydescformat}
-%Short and long forms of abbreviations are separated by \cs{glsinlinedescformat}. The default is to print an equals sign with small spaces on either side, and to encourage linebreaks \emph{after} the equals sign so that new lines do not begin with an equals sign. The short and long forms of child entries are separated by \cs{glsinlinesubdescformat}, which is defined the same as \cs{glsinlinedescformat}. Finally,\cs{glsinlineemptydescformat} controls what happens if there is no description at all. Defaults: 
+%Short and long forms of abbreviations are separated by \cs{glsinlinedescformat}. The default is to print an equals sign with small spaces on either side, and to encourage linebreaks \emph{after} the equals sign so that new lines do not begin with an equals sign. The short and long forms of child entries are separated by \cs{glsinlinesubdescformat}, which is defined the same as \cs{glsinlinedescformat}. Finally, \cs{glsinlineemptydescformat} controls what happens if there is no description at all. Defaults:
 %
 %\begin{verbatim}\renewcommand*{\glsinlinedescformat}[3]{\,=\,\linebreak[1]##1}
 %\renewcommand*{\glsinlinesubdescformat}[3]{\,=\,\linebreak[1]##1}
@@ -788,7 +788,7 @@ version 2005/12/01 or later.
 %\begin{description}
 %\item[Q:] Why don't the abbreviations display in smallcaps?
 %\item[A:] Did you define abbreviations using ALL CAPS for the short form? The short form is displayed in \cs{leipzigfont}, which uses |\textsc|, but |\textsc| cannot make smallcaps out of capital letters: |\textsc{abc}| produces \textsc{abc}, but |\textsc{ABC}| produces \textsc{ABC}. Solution: change the \cs{newleipzig} definitions to use lowercase letters in the second argument.
-%\item[A:] Not all font families contain a smallcaps font. For instance, only some version of Times New Roman contain a smallcaps font; the versionson Windows XP and Mac OS X do not. Solution: try changing the smallcaps font, or at least using |\usepackage[T1]{fontenc}| in your preamble.
+%\item[A:] Not all font families contain a smallcaps font. For instance, only some version of Times New Roman contain a smallcaps font; the versions on Windows XP and Mac OS X do not. Solution: try changing the smallcaps font, or at least using |\usepackage[T1]{fontenc}| in your preamble.
 %\end{description} 
 %
 % \begin{thebibliography}{9}
