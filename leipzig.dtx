@@ -106,7 +106,7 @@ version 2005/12/01 or later.
 %<package>\NeedsTeXFormat{LaTeX2e}[1996/10/24]%
 %<package>\ProvidesPackage{leipzig}%
 %<*package>
-    [2017/07/02 v2.1 Leipzig package for linguistic abbreviations]%
+    [2019/06/09 v2.2 Leipzig package for linguistic abbreviations]%
 %\AtBeginDocument{%
 %  \MakeShortVerb{\|}
 %  \DeleteShortVerb{"}}
@@ -161,7 +161,7 @@ version 2005/12/01 or later.
 %</driver>
 % \fi
 %
-%\CheckSum{844}
+%\CheckSum{867}
 %
 % \CharacterTable
 % {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1724,12 +1724,12 @@ version 2005/12/01 or later.
   \fi
   {\newleipzig{#2}}{\newleipzig[#1]{#2}}%
 }%
+}%
 %    \end{macrocode}
 % \end{macro}
 %If \glossaries{} not loaded, then the code for \cs{newleipzig} and \cs{renewleipzig} is much shorter.
-%
 %    \begin{macrocode}
-}{% 
+{% 
   \newcommand{\newleipzig}[4][]{\@newleipzig(#3)#2\@nil}%
   \newcommand{\renewleipzig}[4][]{%
     \if@leipzig@defined{#2}
@@ -1743,6 +1743,16 @@ version 2005/12/01 or later.
        \@gobbletwo
       }%
   }
+%    \end{macrocode}
+%\changes{2.2}{2019/06/09}{Added definition of \cs{if@leipzig@defined} here. This fixes an error that occurred if \cs{renewcommand} was used with package option [noglossaries].}
+%    \begin{macrocode}
+  \def\if@leipzig@defined#1{%
+    \uppercase\expandafter{\expandafter\ifcsname\@car#1\@nil}\@cdr#1\@nil\endcsname
+      \expandafter\@firstoftwo
+    \else
+      \expandafter\@secondoftwo
+    \fi
+  }
   \def\@newleipzig(#1)#2#3\@nil{%
     \uppercase{\expandafter\gdef\csname #2}#3\endcsname{\leipzigfont{#1}}
   }%
@@ -1751,9 +1761,13 @@ version 2005/12/01 or later.
 %\end{macro}
 % Load the list of standard abbreviations. 
 %
+%\changes{2.2}{2019/06/09}{Pulled some macros out of leipzig.tex into the .sty file.}
 %    \begin{macrocode}
 \@ifpackageloaded{glossaries}{%
-  \loadglsentries{leipzig.tex}%
+  \ifleipzig@nostandards\leipzigdonotindextrue\fi
+    \loadglsentries{leipzig.tex}%
+    \glsfindwidesttoplevelname[\leipzigtype]%
+  \leipzigdonotindexfalse
   }%
   {\input{leipzig.tex}}%
 %    \end{macrocode}

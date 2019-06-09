@@ -38,7 +38,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1996/10/24]%
 \ProvidesPackage{leipzig}%
-    [2017/07/02 v2.1 Leipzig package for linguistic abbreviations]%
+    [2019/06/09 v2.2 Leipzig package for linguistic abbreviations]%
 
 
 
@@ -468,7 +468,8 @@
   \fi
   {\newleipzig{#2}}{\newleipzig[#1]{#2}}%
 }%
-}{%
+}%
+{%
   \newcommand{\newleipzig}[4][]{\@newleipzig(#3)#2\@nil}%
   \newcommand{\renewleipzig}[4][]{%
     \if@leipzig@defined{#2}
@@ -482,12 +483,22 @@
        \@gobbletwo
       }%
   }
+  \def\if@leipzig@defined#1{%
+    \uppercase\expandafter{\expandafter\ifcsname\@car#1\@nil}\@cdr#1\@nil\endcsname
+      \expandafter\@firstoftwo
+    \else
+      \expandafter\@secondoftwo
+    \fi
+  }
   \def\@newleipzig(#1)#2#3\@nil{%
     \uppercase{\expandafter\gdef\csname #2}#3\endcsname{\leipzigfont{#1}}
   }%
 }
 \@ifpackageloaded{glossaries}{%
-  \loadglsentries{leipzig.tex}%
+  \ifleipzig@nostandards\leipzigdonotindextrue\fi
+    \loadglsentries{leipzig.tex}%
+    \glsfindwidesttoplevelname[\leipzigtype]%
+  \leipzigdonotindexfalse
   }%
   {\input{leipzig.tex}}%
 %% 
