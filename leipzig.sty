@@ -422,7 +422,7 @@
   }%
   \def\@newleipzig#1#2\@nil{%
     \ifleipzigdonotindex
-      \uppercase{\expandafter\gdef\csname #2}#2\endcsname{%
+      \uppercase{\expandafter\gdef\csname #1}#2\endcsname{%
         \leipzigfont{\glsentryshort{#1#2}}%
       }%
     \else
@@ -496,8 +496,8 @@
 }
 \@ifpackageloaded{glossaries}{%
   \ifleipzig@nostandards\leipzigdonotindextrue\fi
-    \loadglsentries{leipzig.tex}%
-    \glsfindwidesttoplevelname[\leipzigtype]%
+  \loadglsentries{leipzig.tex}%
+  \glsfindwidesttoplevelname[\leipzigtype]%
   \leipzigdonotindexfalse
   }%
   {\input{leipzig.tex}}%

@@ -47,7 +47,6 @@
 %%  http://www.eva.mpg.de/lingua/resources/glossing-rules.php         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\makeatletter\ifleipzig@nostandards\leipzigdonotindextrue\fi\makeatother
 
 \newleipzig{abl}{abl}{ab\-la\-tive} %ablative
 \newleipzig{abs}{abs}{ab\-so\-lu\-tive} %absolutive
@@ -145,13 +144,6 @@
 \newcommand{\Tsg}{{\Third}{\Sg}}%
 \newcommand{\Tdu}{{\Third}{\Du}}%
 \newcommand{\Tpl}{{\Third}{\Pl}}%
-
-\makeatletter
-\@ifpackageloaded{glossaries}{% if glossary-tree loaded
-    \glsfindwidesttoplevelname[\leipzigtype]%
-}{\relax}%
-\leipzigdonotindexfalse
-\makeatother
 
 %% 
 %% Copyright (C) 2017 by Natalie Weber <natalie.a.weber@gmail.com>

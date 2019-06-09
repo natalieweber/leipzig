@@ -161,7 +161,7 @@ version 2005/12/01 or later.
 %</driver>
 % \fi
 %
-%\CheckSum{867}
+%\CheckSum{855}
 %
 % \CharacterTable
 % {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -1663,7 +1663,7 @@ version 2005/12/01 or later.
 %
 %    \begin{macrocode}
     \ifleipzigdonotindex
-      \uppercase{\expandafter\gdef\csname #2}#2\endcsname{%
+      \uppercase{\expandafter\gdef\csname #1}#2\endcsname{%
         \leipzigfont{\glsentryshort{#1#2}}%
       }%
 %    \end{macrocode}
@@ -1761,12 +1761,23 @@ version 2005/12/01 or later.
 %\end{macro}
 % Load the list of standard abbreviations. 
 %
-%\changes{2.2}{2019/06/09}{Pulled some macros out of leipzig.tex into the .sty file.}
 %    \begin{macrocode}
 \@ifpackageloaded{glossaries}{%
+%    \end{macrocode}
+% If the \hbox{[nostandards]} option was used, then do not index the abbreviations in leipzig.tex.
+%
+%    \begin{macrocode}
   \ifleipzig@nostandards\leipzigdonotindextrue\fi
-    \loadglsentries{leipzig.tex}%
-    \glsfindwidesttoplevelname[\leipzigtype]%
+  \loadglsentries{leipzig.tex}%
+%    \end{macrocode}
+% Calculate the widest name based on this set of pre-defined abbreviations. It is probably vaguely accurate; if the author needs to, they can always redefine this in the preamble. 
+%
+%    \begin{macrocode}
+  \glsfindwidesttoplevelname[\leipzigtype]%
+%    \end{macrocode}
+% Turn indexing back on if it was off.
+%
+%    \begin{macrocode}
   \leipzigdonotindexfalse
   }%
   {\input{leipzig.tex}}%
@@ -1800,10 +1811,6 @@ version 2005/12/01 or later.
 %
 % In a few cases, the label does not match the abbreviation, because the
 % macro that would have been created is already defined in LaTeX.
-%    \end{macrocode}
-% If the \hbox{[nostandards]} option was used, then do not index the following.
-%    \begin{macrocode}
-\makeatletter\ifleipzig@nostandards\leipzigdonotindextrue\fi\makeatother
 
 \newleipzig{abl}{abl}{ab\-la\-tive}			%ablative
 \newleipzig{abs}{abs}{ab\-so\-lu\-tive}		%absolutive
@@ -1902,21 +1909,6 @@ version 2005/12/01 or later.
 \newcommand{\Tsg}{{\Third}{\Sg}}%
 \newcommand{\Tdu}{{\Third}{\Du}}%
 \newcommand{\Tpl}{{\Third}{\Pl}}%
-
-\makeatletter
-%    \end{macrocode}
-%If \glossaries{} is loaded, calculate the widest name based on this set of pre-defined abbreviations. It is probably vaguely accurate; if the author needs to, they can always redefine this in the preamble. 
-%
-%    \begin{macrocode}
-\@ifpackageloaded{glossaries}{% if glossary-tree loaded
-    \glsfindwidesttoplevelname[\leipzigtype]%
-}{\relax}%
-%    \end{macrocode}
-% Turn indexing back on if it was off.
-%
-%    \begin{macrocode}
-\leipzigdonotindexfalse
-\makeatother
 
 %    \end{macrocode}
 % \iffalse
