@@ -5,20 +5,20 @@
 \iffalse
 %</internal>
 %<*readme>
-The leipzig package indexes and prints all linguistic gloss abbreviations used in a document. It provides a set of macros for standard glossing abbreviations, with options to redefine these or to create new ones. For full indexing capabilities, leipzig should be used in conjunction with the glossaries package. Notes for installation are included in the package documentation. 
+The leipzig package indexes and prints all linguistic gloss abbreviations used in a document. It provides a set of macros for standard glossing abbreviations, with options to redefine these or to create new ones. For full indexing capabilities, leipzig should be used in conjunction with the glossaries package. Notes for installation are included in the package documentation.
 
-To install, run 
+To install, run
 
-    (pdf)latex leipzig.dtx 
+    (pdf)latex leipzig.dtx
 
-to extract files. Further instructions are included in the package documentation. 
+to extract files. Further instructions are included in the package documentation.
 
-To typeset the documentation, run 
+To typeset the documentation, run
 
-    pdflatex leipzig.dtx 
-    makeglossaries leipzig 
-    pdflatex leipzig.dtx 
-    pdflatex leipzig.dtx 
+    pdflatex leipzig.dtx
+    makeglossaries leipzig
+    pdflatex leipzig.dtx
+    pdflatex leipzig.dtx
 %</readme>
 %<*internal>
 \fi
@@ -55,7 +55,7 @@ This work has the LPPL maintenance status `maintained'.
 
 The Current Maintainer of this work is Natalie Weber.
 
-This work consists of the file leipzig.dtx, 
+This work consists of the file leipzig.dtx,
 and the derived files
                                 README.md,
                                 leipzig.ins,
@@ -200,11 +200,11 @@ version 2005/12/01 or later.
 % \DoNotIndex{\ProcessOptions,\providecommand,\quad,\raggedright,\relax,\rmfamily}
 % \DoNotIndex{\rightskip,\scantokens,\scshape,\selectfont,\setbox,\sim,\space}
 % \DoNotIndex{\strut,\textup,\the,\tlist@if@empty@nTF,\tolerance,\unhbox,\unskip}
-% \DoNotIndex{\unvbox,\upshape,\vbox,\vskip,\vtop,\wd,\z@,\z@skip,\endgraf} 
-% \DoNotIndex{{\,},\@car,\@cdr,\@gobbletwo,\@ifpackagelater,\@nil} 
-% \DoNotIndex{\Acc,\Du,\Fdu,\Fpl,\Fsg,\Sdu,\Sg,\Spl,\Ssg,\Third,\Tdu,\Tpl,\Tsg,\First,\Second} 
+% \DoNotIndex{\unvbox,\upshape,\vbox,\vskip,\vtop,\wd,\z@,\z@skip,\endgraf}
+% \DoNotIndex{{\,},\@car,\@cdr,\@gobbletwo,\@ifpackagelater,\@nil}
+% \DoNotIndex{\Acc,\Du,\Fdu,\Fpl,\Fsg,\Sdu,\Sg,\Spl,\Ssg,\Third,\Tdu,\Tpl,\Tsg,\First,\Second}
 % \DoNotIndex{\vspace,\uppercase,\translatelet,\tempa,\tempb,\textsc,\string,\setlength,\settowidth}
-% \DoNotIndex{\romannumeral,\RequirePackage,\renewenvironment,\renewcommand\mbox,\makebox,\makeatother,\makeatletter,\linebreak,\PassOptionsToPackage,\raggedcolumns,\ifstrempty,\input} 
+% \DoNotIndex{\romannumeral,\RequirePackage,\renewenvironment,\renewcommand\mbox,\makebox,\makeatother,\makeatletter,\linebreak,\PassOptionsToPackage,\raggedcolumns,\ifstrempty,\input}
 % \DoNotIndex{}
 % \DoNotIndex{}
 % \DoNotIndex{}
@@ -223,7 +223,7 @@ version 2005/12/01 or later.
 %\end{abstract}
 %
 %\section*{Basic Usage}
-%Authors define gloss abbreviations which can be used in a document. (A standard set of abbreviations is pre-defined by \leipzig{}.) These are accessed via `shortcut' macros that take no argument such as |\Nom{}| or |{\Nom}| (short for nominative), which is typeset as {\Nom}. 
+%Authors define gloss abbreviations which can be used in a document. (A standard set of abbreviations is pre-defined by \leipzig{}.) These are accessed via `shortcut' macros that take no argument such as |\Nom{}| or |{\Nom}| (short for nominative), which is typeset as {\Nom}.
 %
 %The abbreviations are indexed in a glossary which can then be printed in an inline or block format using \cs{printglossaries} or \cs{printglosses}. To print an inline glossary, e.g.\ in a footnote, use the schema in~\refp{schema:inline}.
 
@@ -246,7 +246,7 @@ version 2005/12/01 or later.
 %Use at least one macro like {\Nom}.\footnote{\printglosses[type=\leipzigtype,style=inline]}%
 %\end{minipage}}\end{center}
 %
-%To print a block glossary, e.g.\ in a manuscript, use package option \hbox{[block]} or \hbox{[mcolblock]}, as in~\refp{schema:leipzigmcolalttree}. The option \hbox{[mcolblock]} is like \hbox{[block]} but prints in a \texttt{multicol} environment (default number of columns~=~2). 
+%To print a block glossary, e.g.\ in a manuscript, use package option \hbox{[block]} or \hbox{[mcolblock]}, as in~\refp{schema:leipzigmcolalttree}. The option \hbox{[mcolblock]} is like \hbox{[block]} but prints in a \texttt{multicol} environment (default number of columns~=~2).
 %
 %\ex\label{schema:leipzigmcolalttree}|\documentclass{article}|
 %
@@ -264,7 +264,7 @@ version 2005/12/01 or later.
 %
 %|\end{document}|\xe
 %
-%The default output looks like the following. 
+%The default output looks like the following.
 %\begin{center}\vspace{-\baselineskip}\framebox{\begin{minipage}[t]{\textwidth}%
 %Use at least one macro like {\Nom}.
 %\printglosses[style=leipzigmcolalttree,type=\leipzigtype]
@@ -282,12 +282,12 @@ version 2005/12/01 or later.
 %\section{Setup}\label{sec:install}%
 %
 %\subsection{Installation}
-%Download the \leipzig{} package from CTAN and save it somewhere where \LaTeX{} can find it (usually in \$TEXMFHOME/tex/latex/leipzig/). 
+%Download the \leipzig{} package from CTAN and save it somewhere where \LaTeX{} can find it (usually in \$TEXMFHOME/tex/latex/leipzig/).
 %
-%\leipzig{} will automatically load the \glossaries{} package unless you use the \hbox{[noglossaries]} package option. You will need \glossaries{} v3.02 (2012/05/21) or later, because version 3.02 comes bundled with the \textsf{glossary-inline} package, which \leipzig{} relies on for its inline glossary style. 
+%\leipzig{} will automatically load the \glossaries{} package unless you use the \hbox{[noglossaries]} package option. You will need \glossaries{} v3.02 (2012/05/21) or later, because version 3.02 comes bundled with the \textsf{glossary-inline} package, which \leipzig{} relies on for its inline glossary style.
 %
 %\iffalse The \glossaries{} package requires v2.5f (2006/11/18) or later of the \textsf{xkeyval} package. This may be a newer version than the version which came bundled with your distribution, so you should download the newest version of \textsf{xkeyval} from CTAN too. \fi
-% 
+%
 %If you do not already have {\glossaries}, then download it and save it somewhere \LaTeX{} can find it. Run \texttt{latex glossaries.ins} to generate the style files, if need be. Be sure to run \texttt{texhash} or \texttt{maketexlsr} in terminal after installing both packages. To test whether {\glossaries} was installed correctly, you can use the minimal example file \texttt{minimalgls.tex} that comes bundled in the {\glossaries} package. In terminal or the command shell, run:
 %
 %\begin{center}\begin{verbatim}pdflatex minimalgls.tex
@@ -299,14 +299,14 @@ version 2005/12/01 or later.
 %\end{compactitem}}}
 %\smallskip
 %
-%\texttt{makeglossaries} is a perl script which comes bundled with \glossaries{} and which does some smart business of determining whether to build the glossaries using \texttt{makeindex} or \texttt{xindy}. If your system doesn't recognise the command \texttt{perl} then it's likely you don't have Perl installed. Although it is possible to run \texttt{makeindex} directly instead, this creates more work on your part in setting various parameters, and some options in \glossaries{} may be unavailable. I highly recommend that you download \texttt{perl} and use \texttt{makeglossaries}. For Windows, I recommend \href{Strawberry Perl}{http://strawberryperl.com/}. 
+%\texttt{makeglossaries} is a perl script which comes bundled with \glossaries{} and which does some smart business of determining whether to build the glossaries using \texttt{makeindex} or \texttt{xindy}. If your system doesn't recognise the command \texttt{perl} then it's likely you don't have Perl installed. Although it is possible to run \texttt{makeindex} directly instead, this creates more work on your part in setting various parameters, and some options in \glossaries{} may be unavailable. I highly recommend that you download \texttt{perl} and use \texttt{makeglossaries}. For Windows, I recommend \href{Strawberry Perl}{http://strawberryperl.com/}.
 %
 % If you use TeXWorks or the like for text editing, you can add \texttt{makeglossaries} as a menu option instead of running the script in terminal. See \href{http://tex.stackexchange.com/questions/13152/how-to-makeglossaries-with-texworks}{http://tex.stackexchange.com/questions/13152/how-to-makeglossaries-with-texworks}.
 %
 %If you have any trouble installing \glossaries{}, refer to the installation instructions in \texttt{glossaries-user.pdf}. If you are daunted by the size of the manual, try starting off with the (much shorter!) guide for beginners (\texttt{glossariesbegin.pdf}).
 %
 %\subsection{Document structure with \glossaries{}}
-%There are \textbf{five} main parts to any document that utilizes \glossaries{}. If you are missing any of these, then your glossaries will not print. 
+%There are \textbf{five} main parts to any document that utilizes \glossaries{}. If you are missing any of these, then your glossaries will not print.
 %
 %\begin{description}
 %	\item [1.~Load the package] If you use \textsf{hyperref}, you should load \textsf{hyperref} \emph{before} {\leipzig}, contrary to the normal practice of loading \textsf{hyperref} last. (It's because \leipzig{} loads \glossaries{}, which must be loaded after \textsf{hyperref}.)
@@ -344,11 +344,11 @@ version 2005/12/01 or later.
 %\section{Package options}\label{sec:options}%
 %
 %\begin{itemize}
-%\item \textbf{[glossaries]} (default) \leipzig{} will load \glossaries{} if it exists (as well as the bundled packages \textsf{glossary-inline}, \textsf{glossary-tree}, \textsf{glossary-mcols}).  
-%\item \textbf{[noglossaries]} Prevents \glossaries{} from being loaded. This option basically reduces the package to a list of shortcut macros like |{\Acc}| which expand to |\textsc{acc}|, plus a method to create new shortcut macros, plus a switch to control the font. 
-%\item \textbf{[nostandards]} The set of standard pre-defined glosses from the Leipzig Glossing Rules \cite{bic08} can be used but will be prevented from printing in the glossary. 
+%\item \textbf{[glossaries]} (default) \leipzig{} will load \glossaries{} if it exists (as well as the bundled packages \textsf{glossary-inline}, \textsf{glossary-tree}, \textsf{glossary-mcols}).
+%\item \textbf{[noglossaries]} Prevents \glossaries{} from being loaded. This option basically reduces the package to a list of shortcut macros like |{\Acc}| which expand to |\textsc{acc}|, plus a method to create new shortcut macros, plus a switch to control the font.
+%\item \textbf{[nostandards]} The set of standard pre-defined glosses from the Leipzig Glossing Rules \cite{bic08} can be used but will be prevented from printing in the glossary.
 %\item \textbf{[inline]} (default) The glossary containing the gloss abbreviations will be typeset in an inline style. (It uses the \texttt{inline} style, which \leipzig{} has modified from the \texttt{inline} style in \textsf{glossary-inline.sty}.)
-%\item \textbf{[block]} The glossary containing the gloss abbreviations will be typeset in a block style. (It uses the \texttt{leipzigalttree} (alias: \texttt{block}) style, which \leipzig{} has modified from the \texttt{alttree} style in \textsf{glossary-tree.sty}.) 
+%\item \textbf{[block]} The glossary containing the gloss abbreviations will be typeset in a block style. (It uses the \texttt{leipzigalttree} (alias: \texttt{block}) style, which \leipzig{} has modified from the \texttt{alttree} style in \textsf{glossary-tree.sty}.)
 %\item \textbf{[mcolblock]} The glossary containing the gloss abbreviations will be typeset in a multicolumn block format. (It uses the \texttt{leipzigmcolalttree} (alias: \texttt{mcolblock}) style, which \leipzig{} has modified from the \texttt{mcolalttree} style in \textsf{glossary-mcols.sty}.)
 %\item \textbf{[leipzignohyper]} (default) Abbreviations created with \cs{newleipzig} will not have hyperlinks to the glossary.
 %\item \textbf{[leipzighyper]} Abbreviations created with \cs{newleipzig} will have hyperlinks to the glossary.
@@ -367,9 +367,9 @@ version 2005/12/01 or later.
 %
 %\item \textbf{[indexonlyfirst]} - If you have many interlinear glossed examples in your paper, compiling may be slow because every instance of a glossary entry must be written to the glossary.  This option causes only the first usage to be written to the glossary. This option affects all glossary entries--not just gloss abbreviations.
 %\item \textbf{[acronym]} or \textbf{[acronyms]} Separates acronyms from the main glossary. The acronyms glossary can be printed with |\printacronyms|.
-%\item \textbf{[symbols]} Creates a new `Symbols' glossary which can be printed using |\printsymbols|. 
+%\item \textbf{[symbols]} Creates a new `Symbols' glossary which can be printed using |\printsymbols|.
 %\item \textbf{[toc]} Adds glossaries to the table of contents.
-%\item \textbf{[section=\meta{value}]} By default, glossaries begin with a chapter header if you are using a documentclass that defines chapters, else with a section header. You can set this explicitly. If you use section without a value, it means section=section. You can also reset the section type in the document with \cs{setglossarysection}. (Glossaries using the \texttt{inline} styles never begin with a section header.) 
+%\item \textbf{[section=\meta{value}]} By default, glossaries begin with a chapter header if you are using a documentclass that defines chapters, else with a section header. You can set this explicitly. If you use section without a value, it means section=section. You can also reset the section type in the document with \cs{setglossarysection}. (Glossaries using the \texttt{inline} styles never begin with a section header.)
 %\item \textbf{[nonumberlist]} By default, gloss entries will be followed by a number list that links back to the pages the gloss entries were used on. You can suppress this for all glossaries by using this option.
 %\end{itemize}
 %
@@ -378,7 +378,7 @@ version 2005/12/01 or later.
 %\subsection{Defining gloss abbreviations}\label{sec:basic}%
 %
 %The main part of the package provides a method to define new gloss abbreviations and shortcut macros to print the short forms of the abbreviations. These functions work regardless of whether \glossaries{} is loaded or not.
-% 
+%
 %\DescribeMacro{\newleipzig}%
 %\DescribeMacro{\renewleipzig}%
 %Gloss abbrevations are defined (or re-defined) with \cs{newleipzig} and \cs{renewleipzig}, respectively.  For best results, gloss abbreviations should be defined in the preamble after \cs{makeglossaries} and before |\begin{document}|. (The code for \cs{renewleipzig} is courtesy \TeX{}.SX user \textsf{egreg}.)
@@ -386,28 +386,28 @@ version 2005/12/01 or later.
 %\ex \cs{newleipzig}\texttt{ {} }   \oarg{options} \marg{label} \marg{short} \marg{long}\xe
 %\ex~\cs{renewleipzig} \oarg{options} \marg{label} \marg{short} \marg{long}\xe
 %
-% When \glossaries{} is loaded, \cs{newleipzig} defines a new glossary entry using |\newacronym[type=\leipzigtype]|, where \cs{leipzigtype} expands to the glossary that houses the gloss abbreviations (default is \texttt{main}) . 
+% When \glossaries{} is loaded, \cs{newleipzig} defines a new glossary entry using |\newacronym[type=\leipzigtype]|, where \cs{leipzigtype} expands to the glossary that houses the gloss abbreviations (default is \texttt{main}) .
 %
 %\begin{itemize}
-%	\item The optional argument \meta{options} is a key=value list which is passed to \cs{newacronym} after \hbox{|[type=\leipzigtype]|}. It is ignored if \glossaries{} is not loaded. A list of recognized keys is in chapter~4 of the \glossaries{} documentation. 
+%	\item The optional argument \meta{options} is a key=value list which is passed to \cs{newacronym} after \hbox{|[type=\leipzigtype]|}. It is ignored if \glossaries{} is not loaded. A list of recognized keys is in chapter~4 of the \glossaries{} documentation.
 %
 %	\item \meta{label} must be a unique label with which to identify the entry. It cannot contain any nonexpandable commands or active characters, nor can it contain numbers. The reason for this restriction is that \leipzig{} uses the label to construct a shortcut macro, so the label must be able to expand to a valid control sequence name.
 %
-%	\item \meta{short} is the short form of the abbreviation. This needs to be lowercase so that |\textsc{}| will work. (You cannot make capital letters into smallcaps with |\textsc{}|.) 
+%	\item \meta{short} is the short form of the abbreviation. This needs to be lowercase so that |\textsc{}| will work. (You cannot make capital letters into smallcaps with |\textsc{}|.)
 %
 %	\item \meta{long} is the long version of the acronym. I recommend also typing this argument in lowercase letters, and using the \glossaries{} package to format the glossary such that the first letter of all long forms are consistently uppercase or lowercase. You may need to specify hyphenation explicitly in the long form using |\-|.
 %\end{itemize}
 %
-%To redefine a macro, use \cs{renewleipzig} with the \meta{label} of the abbreviation you want to redefine. The \meta{short} and \meta{long} arguments should be the new forms that you want to change to. 
+%To redefine a macro, use \cs{renewleipzig} with the \meta{label} of the abbreviation you want to redefine. The \meta{short} and \meta{long} arguments should be the new forms that you want to change to.
 %
 %\DescribeMacro{\Label}%
-%\cs{newleipzig} creates a shortcut macro by capitalizing the first letter of \meta{label} to form \cs{Label}. This format was chosen because it is short and mnemonic, it stands out visually when editing \glspl{igt} in your .tex file,  and uppercase macros are less likely to be defined than lowercase ones. Shortcut macros take no arguments and gobble a following space, so they require braces; you can type either |\Label{}| or |{\Label}|.\footnote{If you want to be able to type \cs{Label} without braces, you will need to load the \textsf{xparse} package. \leipzig{} does not load \textsf{xparse} because there are some issues with it, and it remains wholly untested with \leipzig{}. See David Carlisle's explanation: \url{http://tex.stackexchange.com/questions/86565/drawbacks-of-xspace}.} 
+%\cs{newleipzig} creates a shortcut macro by capitalizing the first letter of \meta{label} to form \cs{Label}. This format was chosen because it is short and mnemonic, it stands out visually when editing \glspl{igt} in your .tex file,  and uppercase macros are less likely to be defined than lowercase ones. Shortcut macros take no arguments and gobble a following space, so they require braces; you can type either |\Label{}| or |{\Label}|.\footnote{If you want to be able to type \cs{Label} without braces, you will need to load the \textsf{xparse} package. \leipzig{} does not load \textsf{xparse} because there are some issues with it, and it remains wholly untested with \leipzig{}. See David Carlisle's explanation: \url{http://tex.stackexchange.com/questions/86565/drawbacks-of-xspace}.}
 %
 %Shortcut macros print the short form of the abbreviation. If \glossaries{} is loaded, they essentially expand to either |\acrshort{|\meta{label}|}| or |\acrshort*{|\meta{label}|}|, depending on whether they include a link to the glossary or not. If \glossaries{} is not loaded,  the macros print the short form of the abbreviation in |\leipzigfont|, which is initialized to |\textsc|. Here is a simple example:
 %
 %\pex\label{ex:verbz}|\newleipzig{verbz}{vbz}{ver\-ba\-liz\-er}|
 %\a creates the shortcut: |\Verbz{}| or |{\Verbz}|
-%\a which expands to: \Verbz{} 
+%\a which expands to: \Verbz{}
 %\xe
 %
 %\subsection{Pre-defined abbreviations}
@@ -447,11 +447,11 @@ version 2005/12/01 or later.
 %\a|\newleipzig{sg}{sg}{singular}|\texttt{ {} {} {} {} {} }| % {\Sg} prints| {\Sg}
 %\a|\newcommand{\Fsg}{{\First}{\Sg}}|\texttt{ {} {} }| % {\Fsg} prints| {\Fsg}\xe
 %
-%This strategy can be used for any fusional gloss. I usually use a command name that begins with a capital letter like the shortcut macros. 
+%This strategy can be used for any fusional gloss. I usually use a command name that begins with a capital letter like the shortcut macros.
 %\leipzigdonotindexfalse\makeatother
 %
 %\iffalse
-%As an example, \Fdui{} is a combination of abbreviations for first person, dual number, and inclusivity. Abbreviations for first person (|\First{}|) and dual number (|\Du{}|) are already defined in \texttt{leipzig.tex}, so \Inc{} is the only part which still needs to be defined. It is generally useful to then create a shortcut macro (with |\newcommand|) for the fusional gloss which will call the abbreviations of the various parts. 
+%As an example, \Fdui{} is a combination of abbreviations for first person, dual number, and inclusivity. Abbreviations for first person (|\First{}|) and dual number (|\Du{}|) are already defined in \texttt{leipzig.tex}, so \Inc{} is the only part which still needs to be defined. It is generally useful to then create a shortcut macro (with |\newcommand|) for the fusional gloss which will call the abbreviations of the various parts.
 %
 %\ex|\newleipzig{inc}{inc}{inclusive}|\newline
 %|\newcommand{\Fdui}{{\Fdu}.{\Inc}}%|\newline
@@ -466,25 +466,25 @@ version 2005/12/01 or later.
 %
 %\renewcommand{\leipzigfont}[1]{{\textit{\MakeUppercase{#1}}}}%
 %This can occur anywhere in your document and it affects the short forms of any following abbreviations, e.g.\ further instances of |{\Verbz}| from~\refp{ex:verbz} will expand to \Verbz{}.
-%\renewcommand{\leipzigfont}[1]{\textsc{#1}}% 
+%\renewcommand{\leipzigfont}[1]{\textsc{#1}}%
 %
 %Note that the name of each glossary entry in the glossary will also be printed using the final redefinition of \cs{leipzigfont}. You can redefine \cs{glsnamefont} to control how glossary names are displayed. See \autoref{printglossary} for more information on glossary display.
 %
 %\section{Abbreviation display with \glossaries{}}\label{sec:moredisplay}
 %
-%If \glossaries{} is loaded, there are many more options for display refinement. 
+%If \glossaries{} is loaded, there are many more options for display refinement.
 %
 %\subsection{Acronym style}
 %
-%\cs{newleipzig} is built on \cs{newacronym} from the \glossaries{} package. The \glossaries{} package allows you to set an acronym display style. This is a global setting, and it affects all acronyms that are defined using \cs{newacronym} (not only gloss abbreviations). 
+%\cs{newleipzig} is built on \cs{newacronym} from the \glossaries{} package. The \glossaries{} package allows you to set an acronym display style. This is a global setting, and it affects all acronyms that are defined using \cs{newacronym} (not only gloss abbreviations).
 %
 %\DescribeMacro{\setacronymstyle}\leipzig{} sets a custom acronym style called \texttt{long-lpz-short} that is identical to the \texttt{long-short} style defined in \glossaries{}, except that the short form of the abbreviation is printed using \cs{firstleipzigfont} (on first use) and \cs{leipzigfont} (on subsequent uses). It is set in the package using:
 %
 %\ex|\setacronymstyle{long-lpz-short}|\xe
 %
-%You can use the same command in the preamble to set a different acronym style. However, this style will affect all acronyms, even if they are not gloss abbreviations. See the \glossaries{} user manual for details. 
+%You can use the same command in the preamble to set a different acronym style. However, this style will affect all acronyms, even if they are not gloss abbreviations. See the \glossaries{} user manual for details.
 %
-%\DescribeMacro{\gls}Using |\gls{|\meta{label}|}| instead of |\Label| will display the abbreviation according to the acronym style, which may be useful in-text when discussing particular grammatical glosses. The following example uses the abbreviation defined in~\refp{ex:verbz}. 
+%\DescribeMacro{\gls}Using |\gls{|\meta{label}|}| instead of |\Label| will display the abbreviation according to the acronym style, which may be useful in-text when discussing particular grammatical glosses. The following example uses the abbreviation defined in~\refp{ex:verbz}.
 %
 %\pex\a|\gls{verbz} prints:| \gls{verbz} |% first time use|
 %\a|\gls{verbz} prints:| \gls{verbz} |% subsequent uses|
@@ -504,7 +504,7 @@ version 2005/12/01 or later.
 %\DescribeMacro{\glsreset(all)}
 %\DescribeMacro{\glsunset(all)}|\gls{}| and other |\gls|-like commands access and modify the first use flag, which determines if the abbreviation has been used before or not. To reset the first use flag so that the next use of  |\gls| will diplay the abbreviation as if on first use, use |\glsreset{|\meta{label}|}| for an individual abbreviation, or |\glsresetall| to reset all abbreviations. There are also analogous |\glsunset{|\meta{label}|}|  and |\glsunsetall| commands, which cause |\gls| to never use the first use display. See chapter~14 of the \glossaries{} user documentation.
 %
-%Besides |\gls|, there are other acronym-specific macros to print components of the acronym without modifying the first use flag. These can take the same optional arguments as other |\glstext|-like commands. A few examples are shown in \autoref{tab:acrabbrv}; see Chapter~13 of the \glossaries{} documentation for more options. 
+%Besides |\gls|, there are other acronym-specific macros to print components of the acronym without modifying the first use flag. These can take the same optional arguments as other |\glstext|-like commands. A few examples are shown in \autoref{tab:acrabbrv}; see Chapter~13 of the \glossaries{} documentation for more options.
 %
 %
 %\begin{table}[tbp]
@@ -535,13 +535,13 @@ version 2005/12/01 or later.
 %
 %\DescribeMacro{\glsdisablehyper}
 %\DescribeMacro{\glsenablehyper}
-% To disable or enable all hyperlinks to glossaries, use \cs{glsdisablehyper} or \cs{glsenablehyper}. The effect can be localised by placing the commands within a group. 
+% To disable or enable all hyperlinks to glossaries, use \cs{glsdisablehyper} or \cs{glsenablehyper}. The effect can be localised by placing the commands within a group.
 %
 %\DescribeMacro{[nohypertypes]}
 %To disable hyperlinks only for certain glossaries, use the package option (from \glossaries{}) \hbox{[nohypertypes]}. This is a key that takes a list of comma-separated glossary names as a value. Make sure you enclose the value in braces if it contains any commas. The values must be fully expanded, so something like \hbox{|[nohypertypes=\leipzigtype]|} \emph{won't} work. Instead use \hbox{|[nohypertypes=main]|} if the \hbox{[glosses]} option has not been used, or \hbox{|[nohypertypes=leipzig]|} if the \hbox{[glosses]} option has been used. Instead of or in addition to the package option \hbox{[nohypertypes]}, you can also use |\GlsDeclareNoHyperList{|\meta{list}|}|.
 %
 %\DescribeMacro{[nohyperfirst]}
-%To disable hyperlinks only on the first use, use the package options (from \glossaries{})  \hbox{[nohyperfirst]}. This is a key that take a list of comma-separated glossary names as a value. Make sure you enclose the value in braces if it contains any commas.  
+%To disable hyperlinks only on the first use, use the package options (from \glossaries{})  \hbox{[nohyperfirst]}. This is a key that take a list of comma-separated glossary names as a value. Make sure you enclose the value in braces if it contains any commas.
 %
 %\DescribeMacro{\gls*}
 %\DescribeMacro{\gls+}
@@ -549,7 +549,7 @@ version 2005/12/01 or later.
 %
 %\DescribeMacro{\leipzighypertrue}
 %\DescribeMacro{\leipzighyperfalse}
-%Regardless of the global settings you use for hyperlinks in |\gls|-like or |\glstext|-like entries, the shortcut macros like |\Label| are defined by default to not link to the glossary. Use the package option \hbox{[leipzighyper]} to make shortcut macros link to the glossary. You can also switch hyperlinks on and off for particular glosses by using |\leipzighypertrue| or |\leipzighyperfalse| in the preamble \emph{before} you define the abbreviation with \cs{newleipzig}. 
+%Regardless of the global settings you use for hyperlinks in |\gls|-like or |\glstext|-like entries, the shortcut macros like |\Label| are defined by default to not link to the glossary. Use the package option \hbox{[leipzighyper]} to make shortcut macros link to the glossary. You can also switch hyperlinks on and off for particular glosses by using |\leipzighypertrue| or |\leipzighyperfalse| in the preamble \emph{before} you define the abbreviation with \cs{newleipzig}.
 %
 %\subsection{Explicitly formatting individual abbreviations}\label{sec:format}%
 %
@@ -584,7 +584,7 @@ version 2005/12/01 or later.
 %
 %|  document.\footnote{\printglossaries} % or \printglosses|\xe
 %
-%The default output looks like the following. 
+%The default output looks like the following.
 %
 %\glsreset{class}
 %\begin{center}\vspace{-\baselineskip}\framebox{\begin{minipage}[t]{\textwidth}%
@@ -593,17 +593,17 @@ version 2005/12/01 or later.
 %
 %\section{Displaying the glossary}\label{printglossary}%
 %
-%\iffalse \cs{makeglossaries} goes in the preamble after defining new glossaries (if any) and before defining new glossary entries, and one of \cs{printglossaries} or \cs{printglosses} . This command creates a customised style file (with extension .ist for use with \texttt{makeindex}, or .xdy for use with \texttt{xindy}) and ensures that glossary entries are written to the appropriate output files. If you omit \cs{makeglossaries} none of the glossary files will be created. 
+%\iffalse \cs{makeglossaries} goes in the preamble after defining new glossaries (if any) and before defining new glossary entries, and one of \cs{printglossaries} or \cs{printglosses} . This command creates a customised style file (with extension .ist for use with \texttt{makeindex}, or .xdy for use with \texttt{xindy}) and ensures that glossary entries are written to the appropriate output files. If you omit \cs{makeglossaries} none of the glossary files will be created.
 %
-%To build the glossary, you need to pdf\LaTeX{} the document once, so that \glossaries{} can index all abbreviations used and write them to an external file. Then run |makeglossaries| FILENAME (no extension) to build the glossary, pdf\LaTeX{} again to print the glossary. (Run pdf\LaTeX{} a second time if you have a Table of Contents.) 
+%To build the glossary, you need to pdf\LaTeX{} the document once, so that \glossaries{} can index all abbreviations used and write them to an external file. Then run |makeglossaries| FILENAME (no extension) to build the glossary, pdf\LaTeX{} again to print the glossary. (Run pdf\LaTeX{} a second time if you have a Table of Contents.)
 %\fi
 %
 %\DescribeMacro{\printglossaries}%
 %\DescribeMacro{\printglosses}%
-%To display the glossaries, put \cs{printglossaries} (or the \leipzig{}-defined \cs{printglosses}) in your document where you would like the glossaries to display. \cs{printglossaries} prints all glossaries in the order they were defined, while \cs{printglosses} prints only the \cs{leipzigtype} glossary. 
+%To display the glossaries, put \cs{printglossaries} (or the \leipzig{}-defined \cs{printglosses}) in your document where you would like the glossaries to display. \cs{printglossaries} prints all glossaries in the order they were defined, while \cs{printglosses} prints only the \cs{leipzigtype} glossary.
 
-%\subsection{Glossary style} 
-%The style of the \cs{leipzigtype} glossary can be controlled in two ways. 
+%\subsection{Glossary style}
+%The style of the \cs{leipzigtype} glossary can be controlled in two ways.
 %
 %\DescribeMacro{[mcolblock]}
 %\DescribeMacro{[block]}
@@ -618,7 +618,7 @@ version 2005/12/01 or later.
 %
 %\subsection{Display options for all styles}
 %\DescribeMacro{\leipzigname}
-%To change the name of the glossary that houses the gloss abbreviations, redefine \cs{leipzigname}. It defaults to `Abbreviations', as below. 
+%To change the name of the glossary that houses the gloss abbreviations, redefine \cs{leipzigname}. It defaults to `Abbreviations', as below.
 %
 %\ex|\renewcommand{\leipzigname}{Abbreviations}|\xe%
 %
@@ -644,11 +644,11 @@ version 2005/12/01 or later.
 %
 %\subsection{Options to modify pre-defined styles}
 %\subsubsection{Inline glossaries}
-%\leipzig{} loads the \texttt{glossary-inline} package, which comes bundled with \glossaries{}. This package defines an inline glossary style, which \leipzig{} then redefines to look like a style often used in linguistics papers. This style is set by default when you load \leipzig{}, or by using the \hbox{[inline]} package option. 
+%\leipzig{} loads the \texttt{glossary-inline} package, which comes bundled with \glossaries{}. This package defines an inline glossary style, which \leipzig{} then redefines to look like a style often used in linguistics papers. This style is set by default when you load \leipzig{}, or by using the \hbox{[inline]} package option.
 %
 %\DescribeMacro{\glossarysection}
 % Note that \texttt{inline} defines \cs{glossarysection} to print nothing. Therefore, if you set this style for all glossaries by using |\setglossarystyle|\linebreak[1]|{inline}|, then no glossaries will have a glossary section header.
-%      
+%
 %\begin{verbatim}\renewcommand*{\glossarysection}[2][]{}\end{verbatim}
 %
 %\DescribeMacro{\glossaryheader}
@@ -662,20 +662,20 @@ version 2005/12/01 or later.
 %
 %\DescribeMacro{\glsinlineseparator}
 %\DescribeMacro{\glsinlinesubseparator}
-%Each full glossary entry is separated by a comma and a space, regardless of whether that entry is a a subentry (linked to a parent entry) or not. \cs{glsinlineseparator} controls the separator between (parent) entries, and \cs{glsinlinesubseparator} controls the separator between child entries. The defaults are as follows: 
+%Each full glossary entry is separated by a comma and a space, regardless of whether that entry is a a subentry (linked to a parent entry) or not. \cs{glsinlineseparator} controls the separator between (parent) entries, and \cs{glsinlinesubseparator} controls the separator between child entries. The defaults are as follows:
 %
 %\begin{verbatim}\renewcommand*{\glsinlineseparator}{,\space}
 %\renewcommand*{\glsinlinesubseparator}{,\space}\end{verbatim}
 %
 %\DescribeMacro{\glsinlineparentchildseparator}
 %\DescribeMacro{\glsinlinepostchild}
-%\indent A set of child entries may be linked to a parent entry by setting \hbox{|[parent=|\meta{label}|]|} in the optional argument given to \cs{(re)newleipzig}. The child or children entries will be grouped together and follow the parent entry. For the inline glossary style, the parent and first child are separated by \cs{glsinlineparentchildseparator} and the last child is followed by \cs{glsinlinepostchild}. The defaults are: 
+%\indent A set of child entries may be linked to a parent entry by setting \hbox{|[parent=|\meta{label}|]|} in the optional argument given to \cs{(re)newleipzig}. The child or children entries will be grouped together and follow the parent entry. For the inline glossary style, the parent and first child are separated by \cs{glsinlineparentchildseparator} and the last child is followed by \cs{glsinlinepostchild}. The defaults are:
 %
 %\begin{verbatim}\renewcommand*{\glsinlineparentchildseparator}{:\space}%
 %\renewcommand*{\glsinlinepostchild}{}%\end{verbatim}
 %
 %\DescribeMacro{\glspostinline}
-%The entire inline glossary is concluded with \cs{glspostinline}. This is initialized to print a period and a space. Default: 
+%The entire inline glossary is concluded with \cs{glspostinline}. This is initialized to print a period and a space. Default:
 %
 %\begin{verbatim}\renewcommand*{\glspostinline}{.\space}\end{verbatim}
 %
@@ -750,14 +750,14 @@ version 2005/12/01 or later.
 %
 %\ex|\printglosses[style=list]|\xe
 %
-%You can reset the glossary preamble between each call of |\printglossary| or |\printglosses|. 
+%You can reset the glossary preamble between each call of |\printglossary| or |\printglosses|.
 %
 %\DescribeMacro{[style=\meta{options}]}The \hbox{[style=\meta{options}]} option in \glossaries{} is set to define the style for all glossaries \emph{except} the \cs{leipzigtype} glossary. If you truly want to set one style for all glossaries, you will need to use  \cs{setglossarystyle} before \cs{makeglossaries}. A linguistics paper might have several different glossaries of abbreviations, so if you wanted to print all of them using the \texttt{leipzigalttree} style, you could do the following:
 %
 %\iffalse
 %\ex|\usepackage[nomain,acronyms,symbols,glosses]{leipzig}|
 %
-%|% package options create three glossaries:| 
+%|% package options create three glossaries:|
 %
 %|  % Acronyms, Symbols, and Abbreviations|\newline
 %
@@ -789,7 +789,7 @@ version 2005/12/01 or later.
 %\item[Q:] Why don't the abbreviations display in smallcaps?
 %\item[A:] Did you define abbreviations using ALL CAPS for the short form? The short form is displayed in \cs{leipzigfont}, which uses |\textsc|, but |\textsc| cannot make smallcaps out of capital letters: |\textsc{abc}| produces \textsc{abc}, but |\textsc{ABC}| produces \textsc{ABC}. Solution: change the \cs{newleipzig} definitions to use lowercase letters in the second argument.
 %\item[A:] Not all font families contain a smallcaps font. For instance, only some version of Times New Roman contain a smallcaps font; the versions on Windows XP and Mac OS X do not. Solution: try changing the smallcaps font, or at least using |\usepackage[T1]{fontenc}| in your preamble.
-%\end{description} 
+%\end{description}
 %
 % \begin{thebibliography}{9}
 % \bibitem{bic08} Bickel, Balthasar, Bernard Comrie, and Martin Haspelmath. (2008). ``The Leipzig Glossing Rules. Conventions for Interlinear Morpheme by Morpheme Glosses.'' Revised version of February 2008. Department of Linguistics, Max Plank Institute for Evolutionary Anthropology. Retreived 30 June 2012: \url{http://www.eva.mpg.de/lingua/resources/glossing-rules.php}.
@@ -851,47 +851,47 @@ version 2005/12/01 or later.
 % \verb+\M{}+ & \sc m & masculine\\
 % \verb+\N{}+ & \sc n & neuter\\
 % \verb+\Neg{}+ & \sc neg & negative\\
-% \verb+\Nmlz{}+ & \sc nmlz & nominalizer\\   
-% \verb+\Nom{}+ & \sc nom & nominative\\      
-% \verb+\Obj{}+ & \sc obj & object\\          
-% \verb+\Obl{}+ & \sc obl & oblique\\         
-% \verb+\Pass{}+ & \sc pass & passive\\       
-% \verb+\Parg{}+ & \sc p & patient\\           
-% \verb+\Pfv{}+ & \sc pfv & perfective\\      
-% \verb+\Pl{}+ & \sc pl & plural\\            
-% \verb+\Poss{}+ & \sc poss & possessive\\    
-% \verb+\Pred{}+ & \sc pred & predicative\\   
-% \verb+\Prf{}+ & \sc prf & perfect\\         
-% \verb+\Prs{}+ & \sc prs & present\\         
-% \verb+\Prog{}+ & \sc prog & progressive\\   
-% \verb+\Proh{}+ & \sc proh & prohibitive\\   
-% \verb+\Prox{}+ & \sc prox & proximal\\      
-% \verb+\Pst{}+ & \sc pst & past\\            
-% \verb+\Ptcp{}+ & \sc ptcp & participle\\    
-% \verb+\Purp{}+ & \sc purp & purposive\\     
-% \verb+\Q{}+ & \sc q & question particle\\   
-% \verb+\Quot{}+ & \sc quot & quotative\\     
-% \verb+\Recp{}+ & \sc recp & reciprocal\\    
-% \verb+\Refl{}+ & \sc refl & reflexive\\     
-% \verb+\Rel{}+ & \sc rel & relative\\        
-% \verb+\Res{}+ & \sc res & resultative\\     
-% \verb+\Sbj{}+ & \sc sbj & subject\\         
-% \verb+\Subj{}+ & \sc subj & subjunctive\\   
-% \verb+\Sg{}+ & \sc sg & singular\\          
-% \verb+\Sarg{}+ & \sc s & argument of intransitive argument\\  
-% \verb+\Top{}+ & \sc top & topic\\           
-% \verb+\Tr{}+ & \sc tr & transitive\\        
-% \verb+\Voc{}+ & \sc voc & vocative\\\bottomrule   
+% \verb+\Nmlz{}+ & \sc nmlz & nominalizer\\
+% \verb+\Nom{}+ & \sc nom & nominative\\
+% \verb+\Obj{}+ & \sc obj & object\\
+% \verb+\Obl{}+ & \sc obl & oblique\\
+% \verb+\Pass{}+ & \sc pass & passive\\
+% \verb+\Parg{}+ & \sc p & patient\\
+% \verb+\Pfv{}+ & \sc pfv & perfective\\
+% \verb+\Pl{}+ & \sc pl & plural\\
+% \verb+\Poss{}+ & \sc poss & possessive\\
+% \verb+\Pred{}+ & \sc pred & predicative\\
+% \verb+\Prf{}+ & \sc prf & perfect\\
+% \verb+\Prs{}+ & \sc prs & present\\
+% \verb+\Prog{}+ & \sc prog & progressive\\
+% \verb+\Proh{}+ & \sc proh & prohibitive\\
+% \verb+\Prox{}+ & \sc prox & proximal\\
+% \verb+\Pst{}+ & \sc pst & past\\
+% \verb+\Ptcp{}+ & \sc ptcp & participle\\
+% \verb+\Purp{}+ & \sc purp & purposive\\
+% \verb+\Q{}+ & \sc q & question particle\\
+% \verb+\Quot{}+ & \sc quot & quotative\\
+% \verb+\Recp{}+ & \sc recp & reciprocal\\
+% \verb+\Refl{}+ & \sc refl & reflexive\\
+% \verb+\Rel{}+ & \sc rel & relative\\
+% \verb+\Res{}+ & \sc res & resultative\\
+% \verb+\Sbj{}+ & \sc sbj & subject\\
+% \verb+\Subj{}+ & \sc subj & subjunctive\\
+% \verb+\Sg{}+ & \sc sg & singular\\
+% \verb+\Sarg{}+ & \sc s & argument of intransitive argument\\
+% \verb+\Top{}+ & \sc top & topic\\
+% \verb+\Tr{}+ & \sc tr & transitive\\
+% \verb+\Voc{}+ & \sc voc & vocative\\\bottomrule
 % \end{longtable}
 %
 %\section{Example of multiple glossaries}\label{app:multiple}%
-% 
+%
 %\begin{verbatim}\documentclass{book}%
 %
 %\usepackage[mcolblock,% style for gloss abbreviations
 %     symbols,%          creates glossary of symbols
 %     glosses,%          creates glossary of gloss abbreviations
-%     acronyms,%         creates glossary of acronyms that 
+%     acronyms,%         creates glossary of acronyms that
 %                                  % are not symbols or glosses
 %]{leipzig}
 %
@@ -913,7 +913,7 @@ version 2005/12/01 or later.
 % \newglossaryentry{gls1}{name={Richness of the Base},%
 %      description={This is a description of Richness of the Base}}
 % \newglossaryentry{gls2}{name={Emergence of the Unmarked},%
-%      description={This is a description of the 
+%      description={This is a description of the
 %          Emergence of the Unmarked}}
 %
 % % These will go into the symbols glossary.
@@ -933,12 +933,12 @@ version 2005/12/01 or later.
 %
 %\begin{document}
 %
-% % The main glossary will print after its own chapter heading, 
+% % The main glossary will print after its own chapter heading,
 % %    because we didn't change the [section] option.
 % % We will print the main glossary in yet a third style:
 % \printglosses[style=list]
 %
-% % Now we will print all of the remaining glossaries as 
+% % Now we will print all of the remaining glossaries as
 % %      individual sections together in one chapter.
 % \chapter*{Abbreviations}
 % \setglossarysection{section}
@@ -961,7 +961,7 @@ version 2005/12/01 or later.
 % \subsection{Global conditionals and definitions}
 % \begin{macro}{\ifleipzig@glossaries}
 % \begin{macro}{\ifleipzig@noglossaries}
-% Some booleans to determine whether the \glossaries{} package is loaded or not. The default is to load \glossaries{}. 
+% Some booleans to determine whether the \glossaries{} package is loaded or not. The default is to load \glossaries{}.
 %
 %    \begin{macrocode}
 \newif\ifleipzig@glossaries\leipzig@glossariestrue
@@ -995,7 +995,7 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 % \end{macro}
 %\begin{macro}{\ifleipzighyper}
-%Boolean switch to make abbreviations link to the glossary. Default is false. 
+%Boolean switch to make abbreviations link to the glossary. Default is false.
 %
 %    \begin{macrocode}
 \newif\ifleipzighyper\leipzighyperfalse
@@ -1003,7 +1003,7 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %\end{macro}
 %\begin{macro}{\leipzigfont}
-% Some user hooks to change how abbreviations are displayed in-text 
+% Some user hooks to change how abbreviations are displayed in-text
 % on first and subsequent uses. These default to smallcaps. \cs{leipzigfont} works regardless of whether \glossaries{} is loaded or not.
 %
 %    \begin{macrocode}
@@ -1015,7 +1015,7 @@ version 2005/12/01 or later.
 %\changes{v2.0}{2017/04/05}{option now loads the glossaries package instead of merely setting a boolean and issuing a warning.}
 % \begin{macro}{[noglossaries]}
 %\changes{v2.0}{2017/04/05}{option now prevents leipzig from loading glossaries package.}
-%Option \hbox{[glossaries]} will load the \glossaries{} package, if it exists (default behaviour). The package option \hbox{[noglossaries]} prevents \leipzig{} from loading \glossaries{}; if \glossaries{} was loaded before \leipzig{} then some of that package's functionality will still exist. 
+%Option \hbox{[glossaries]} will load the \glossaries{} package, if it exists (default behaviour). The package option \hbox{[noglossaries]} prevents \leipzig{} from loading \glossaries{}; if \glossaries{} was loaded before \leipzig{} then some of that package's functionality will still exist.
 %
 %    \begin{macrocode}
 \DeclareOption{glossaries}{\leipzig@glossariestrue}
@@ -1028,7 +1028,7 @@ version 2005/12/01 or later.
 %\end{macro}
 %\begin{macro}{[glosses]}
 %\begin{macro}{[leipzig]}
-% These options create a new glossary named \texttt{leipzig} and redefines \cs{leipzigtype} to \texttt{leipzig}. 
+% These options create a new glossary named \texttt{leipzig} and redefines \cs{leipzigtype} to \texttt{leipzig}.
 %
 %    \begin{macrocode}
 \DeclareOption{glosses}{\leipzig@sepglossestrue}
@@ -1037,8 +1037,8 @@ version 2005/12/01 or later.
 %\end{macro}
 %\end{macro}
 % \begin{macro}{[nostandards]}
-% This option prevents the set of standard abbreviations from being indexed in a glossary.  
-% 
+% This option prevents the set of standard abbreviations from being indexed in a glossary.
+%
 %    \begin{macrocode}
 \DeclareOption{nostandards}{\leipzig@nostandardstrue}
 %    \end{macrocode}
@@ -1127,7 +1127,7 @@ version 2005/12/01 or later.
 % From here on out we use |\@ifpackageloaded{glossaries}|, whichis true either if someone used the \hbox{[glossaries]} option, or if they used \hbox{[noglossaries]} but loaded \glossaries{} before \leipzig{}. Possibly unexpected behavior, but this command avoids nested conditionals, which are problematic.
 %
 %\begin{macro}{\leipzigtype}
-% If \glossaries{} was loaded, define some stub macros and conditionals. All glossary entries created with \cs{newleipzig} have type=\cs{leipzigtype}. It is initialized here to \cs{glsdefaulttype}, so that gloss abbreviations are put into the main glossary. The \hbox{[glosses]} package option redefines it to expand to \texttt{leipzig}. 
+% If \glossaries{} was loaded, define some stub macros and conditionals. All glossary entries created with \cs{newleipzig} have type=\cs{leipzigtype}. It is initialized here to \cs{glsdefaulttype}, so that gloss abbreviations are put into the main glossary. The \hbox{[glosses]} package option redefines it to expand to \texttt{leipzig}.
 %
 %\begin{macro}{\leipzigname}
 %The name of the \cs{leipzigtype} glossary is initialized to `Abbreviations'. This prints in the section header before the glossary, if there is one.
@@ -1158,7 +1158,7 @@ version 2005/12/01 or later.
 %    \end{macrocode}
 %\end{macro}
 %\begin{macro}{\ifleipzigdesccapitalize}
-%Switch to capitalize the description of the abbreviation in the glossary. Default is false. 
+%Switch to capitalize the description of the abbreviation in the glossary. Default is false.
 %
 %    \begin{macrocode}
   \newif\ifleipzigdesccapitalize\leipzigdesccapitalizefalse
@@ -1219,18 +1219,18 @@ version 2005/12/01 or later.
 %
 %    \begin{macrocode}
   \DeclareAcronymList{\leipzigtype}%
-%    \end{macrocode}	
+%    \end{macrocode}
 %\begin{macro}{long-lpz-short}
-% We create a new acronym style, modeled off of the \glossaries{} code for the 
-% \texttt{long-sc-short} style. It copies the \texttt{long-short} style, but changes 
+% We create a new acronym style, modeled off of the \glossaries{} code for the
+% \texttt{long-sc-short} style. It copies the \texttt{long-short} style, but changes
 % the font of the short form to be \cs{leipzigfont}.\footnote{Unfortunately, all abbreviations will use this style, even if they are not gloss abbreviations. The \textsf{glossaries-extra} provides a way to set a different style for each category of abbrevations.} The short form will be used both in running text and in the  glossary. (This default can be overridden by setting the short forms explicitly via options to \cs{newglossaryentry} or \cs{newleipzig}.)
 %
 %    \begin{macrocode}
     \newacronymstyle{long-lpz-short}%
-    {% 
+    {%
       \GlsUseAcrEntryDispStyle{long-short}%
     }%
-    {% 
+    {%
       \GlsUseAcrStyleDefs{long-short}%
       \renewcommand{\acronymfont}[1]{\leipzigfont{##1}}%
       \renewcommand{\firstacronymfont}[1]{\firstleipzigfont{##1}}%
@@ -1252,13 +1252,13 @@ version 2005/12/01 or later.
 % If \glossaries{} option \hbox{[nostyles]} has been used, then \cs{@glossary@default@style} is set to \cs{relax} and no glossary style is set! This is a problem if the author has at least one glossary besides \cs{leipzigtype}, so we set the glossary style to \cs{@leipzig@default@style} as a last resort. \cs{@leipzig@default@style} is initialized to \texttt{inline} but could have been redefined by the user via the package options \hbox{[block]}, \hbox{[mcolblock]}, and \hbox{[inline]}.
 %
 %    \begin{macrocode}
-  \if\@glossary@default@style\relax 
+  \if\@glossary@default@style\relax
     \setglossarystyle{\@leipzig@default@style}%
   \fi
 %    \end{macrocode}
 %\begin{macro}{\printglosses}
 %\begin{macro}{\printleipzig}
-% Provide shortcut \cs{printglosses} (and alias \cs{printleipzig}) to print abbreviations in the appropriate style. We wait until \cs{AtBeginDocument} in case the author has changed the style in the preamble. 
+% Provide shortcut \cs{printglosses} (and alias \cs{printleipzig}) to print abbreviations in the appropriate style. We wait until \cs{AtBeginDocument} in case the author has changed the style in the preamble.
 %
 % \cs{printglosses} basically expands to |\printglossary[type=\leipzigtype]|. If \cs{@leipzig@default@style} is defined, we also set a style. If the author used \cs{leipzignonumbersfalse}, then we also include a number list.
 %
@@ -1290,12 +1290,12 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
   \renewcommand*{\printglossaries}{%
 %    \end{macrocode}
-% \cs{forallglossaries} defines the first argument (\cs{@@glo@type}) as the name of the current glossary in the loop. 
+% \cs{forallglossaries} defines the first argument (\cs{@@glo@type}) as the name of the current glossary in the loop.
 %
 %    \begin{macrocode}
     \forallglossaries{\@@glo@type}{%
 %    \end{macrocode}
-% If \cs{@@glo@type} and \cs{leipzigtype} expand to the same thing, then we use \cs{printglosses}. We have to fully expand both macros before comparison. 
+% If \cs{@@glo@type} and \cs{leipzigtype} expand to the same thing, then we use \cs{printglosses}. We have to fully expand both macros before comparison.
 %
 %    \begin{macrocode}
       \edef\tempa{\@@glo@type}%
@@ -1309,12 +1309,12 @@ version 2005/12/01 or later.
 % End \cs{forallglossaries}.
 %
 %    \begin{macrocode}
-    }% 
+    }%
 %    \end{macrocode}
 % End \cs{printglossaries} redefinition.
 %
 %    \begin{macrocode}
-  }% 
+  }%
 %    \end{macrocode}
 % End \cs{AtBeginDocument}.
 %
@@ -1336,9 +1336,9 @@ version 2005/12/01 or later.
     \glsnogroupskiptrue
     \glsnopostdottrue
   }%
-}{\relax}% 
+}{\relax}%
 %    \end{macrocode}
-% The {\leipzig} package pre-defines three styles. 
+% The {\leipzig} package pre-defines three styles.
 %
 %\subsubsection{leipzigalttree style}
 %    \begin{macrocode}
@@ -1353,7 +1353,7 @@ version 2005/12/01 or later.
       \renewenvironment{theglossary}%
       {\def\@gls@prevlevel{-1}%
       \mbox{}\par
-      }% 
+      }%
       {\par}%
 %    \end{macrocode}
 % Removed default bolding from \cs{glstreenamefmt}. That way, the short form prints with the default formatting imposed by the \texttt{long-lpz-short} acronym style. This defaults to \cs{leipzigfont}, unless the author used the \texttt{short} key in the gloss entry definition.
@@ -1361,7 +1361,7 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
     \renewcommand*{\glstreenamefmt}[1]{##1}
 %    \end{macrocode}
-%  The definitions for \cs{glossentry} and \cs{subglossentry} are identical to \texttt{alttree}, except that I made the space after the widest name adjustable with \cs{glspostnamespace}, which defaults to \cs{space}. I also printed the description using \cs{leipzig@glossentrydesc}, which defaults to \cs{glossentrydesc}, but will be redefined to use \cs{Glossentrydesc} if \cs{leipzigdesccapitalize} is set to true by the author. 
+%  The definitions for \cs{glossentry} and \cs{subglossentry} are identical to \texttt{alttree}, except that I made the space after the widest name adjustable with \cs{glspostnamespace}, which defaults to \cs{space}. I also printed the description using \cs{leipzig@glossentrydesc}, which defaults to \cs{glossentrydesc}, but will be redefined to use \cs{Glossentrydesc} if \cs{leipzigdesccapitalize} is set to true by the author.
 %
 %    \begin{macrocode}
     \renewcommand{\glossentry}[2]{%
@@ -1381,7 +1381,7 @@ version 2005/12/01 or later.
         }%
       }%
       \ifglshassymbol{##1}{(\glossentrysymbol{##1})\space}{}%
-      \leipzig@glossentrydesc{##1}\glspostdescription\space ##2\par 
+      \leipzig@glossentrydesc{##1}\glspostdescription\space ##2\par
       \def\@gls@prevlevel{0}%
     }%
     \renewcommand{\subglossentry}[3]{%
@@ -1431,7 +1431,7 @@ version 2005/12/01 or later.
 %End |\@ifpackageloaded{glossaries}|. Else, \cs{relax}.
 %
 %    \begin{macrocode}
-}% 
+}%
 {\relax}%
 %    \end{macrocode}
 %\end{macro}
@@ -1460,7 +1460,7 @@ version 2005/12/01 or later.
 %    \begin{macrocode}
       \vspace{-\baselineskip}%
       }%
-      {\par 
+      {\par
       \end{multicols}}%
     }%
 %    \end{macrocode}
@@ -1474,9 +1474,9 @@ version 2005/12/01 or later.
 %
 %    \begin{macrocode}
   }%
-  {\relax}% 
-}% 
-{\relax}% 
+  {\relax}%
+}%
+{\relax}%
 %    \end{macrocode}
 %\end{macro}
 %\subsubsection{inline style}
@@ -1512,7 +1512,7 @@ version 2005/12/01 or later.
    \renewcommand*{\glossaryheader}{}%
    \renewcommand*{\glsgroupheading}[1]{}%
 %    \end{macrocode}
-% The gloss and subgloss format are changed to replace \cs{glossentrydesc} with \cs{leipzig@glossentrydesc}. 
+% The gloss and subgloss format are changed to replace \cs{glossentrydesc} with \cs{leipzig@glossentrydesc}.
 %
 %    \begin{macrocode}
     \renewcommand{\glossentry}[2]{%
@@ -1574,7 +1574,7 @@ version 2005/12/01 or later.
     \renewcommand*{\glsinlinesubdescformat}[3]{%
       \,=\,\linebreak[1]##1}%original: #1
 %    \end{macrocode}
-% We redefine \cs{glossarysection} \emph{within} the glossary style definition. This means that any glossary that uses this style will \emph{not} have a section header. Other glossaries will not be affected unless the author uses |\setglossarystyle{inline}| before \cs{makeglossaries}. 
+% We redefine \cs{glossarysection} \emph{within} the glossary style definition. This means that any glossary that uses this style will \emph{not} have a section header. Other glossaries will not be affected unless the author uses |\setglossarystyle{inline}| before \cs{makeglossaries}.
 %
 %    \begin{macrocode}
     \renewcommand*{\glossarysection}[2][\@gls@title]{}% no section header
@@ -1629,8 +1629,8 @@ version 2005/12/01 or later.
     \renewcommand*{\glspostinline}{.\space}% changed from .
    % \renewcommand{\glsnamefont}[1]{\textsc{##1}}% removed v2.0
     \renewcommand*{\glossarysection}[2][\@gls@title]{}% added v1.0
-    }% 
-  }% 
+    }%
+  }%
 %    \end{macrocode}
 % Else, if \textsf{glossary-inline} is not loaded, \cs{relax}.
 %
@@ -1654,12 +1654,12 @@ version 2005/12/01 or later.
     \@newleipzig#2\@nil%
   }%
 %    \end{macrocode}
-% \cs{newleipzig} passes the glossary label (parameter \#2) to \cs{@newleipzig}, which actually reads in the first token of the label separately than the remainder of the label. 
+% \cs{newleipzig} passes the glossary label (parameter \#2) to \cs{@newleipzig}, which actually reads in the first token of the label separately than the remainder of the label.
 %
 %    \begin{macrocode}
   \def\@newleipzig#1#2\@nil{%
 %    \end{macrocode}
-% A globally-defined macro is created from the label after capitalizing the first token. If the |\leipzigdonotindex| boolean is toggled true, then this macro is defined to print the short form of the abbreviation in \cs{leipzigfont}, which is initialized to smallcaps. 
+% A globally-defined macro is created from the label after capitalizing the first token. If the |\leipzigdonotindex| boolean is toggled true, then this macro is defined to print the short form of the abbreviation in \cs{leipzigfont}, which is initialized to smallcaps.
 %
 %    \begin{macrocode}
     \ifleipzigdonotindex
@@ -1667,9 +1667,9 @@ version 2005/12/01 or later.
         \leipzigfont{\glsentryshort{#1#2}}%
       }%
 %    \end{macrocode}
-%If \cs{leipzigdonotindex} is false, then the macro is defined to call \cs{acrshort} or \cs{acrshort*}, depending on whether the abbreviation should include a hyperlink to the glossary or not. 
+%If \cs{leipzigdonotindex} is false, then the macro is defined to call \cs{acrshort} or \cs{acrshort*}, depending on whether the abbreviation should include a hyperlink to the glossary or not.
 %
-% Note that \cs{glsentryshort} and \cs{acrshort} both display the short form of the acronym. Neither changes the first use flag. The only differences are that \cs{acrshort} indexes the acronym for use in the glossary and is formatted according to the short form of the acronym style \texttt{long-lpz-short}, but \cs{glsentryshort} does not index the acronym nor format the text. 
+% Note that \cs{glsentryshort} and \cs{acrshort} both display the short form of the acronym. Neither changes the first use flag. The only differences are that \cs{acrshort} indexes the acronym for use in the glossary and is formatted according to the short form of the acronym style \texttt{long-lpz-short}, but \cs{glsentryshort} does not index the acronym nor format the text.
 %
 %    \begin{macrocode}
     \else
@@ -1682,13 +1682,13 @@ version 2005/12/01 or later.
           \acrshort*{#1#2}%
         }%
       \fi
-    \fi  
+    \fi
     \egroup
 %    \end{macrocode}
 % End |\def\@newleipzig|.
 %
 %    \begin{macrocode}
-    }% 
+    }%
 %    \end{macrocode}
 % \begin{macro}{\renewleipzig}
 % This macro is provided to allow authors to change previously-defined gloss abbreviations, such as the pre-defined abbreviations that come bundled with \leipzig{}. This command is courtesy egreg, from \url{http://tex.stackexchange.com/questions/277292/redefining-existing-abbreviations-for-leipzig-sty}.
@@ -1729,7 +1729,7 @@ version 2005/12/01 or later.
 % \end{macro}
 %If \glossaries{} not loaded, then the code for \cs{newleipzig} and \cs{renewleipzig} is much shorter.
 %    \begin{macrocode}
-{% 
+{%
   \newcommand{\newleipzig}[4][]{\@newleipzig(#3)#2\@nil}%
   \newcommand{\renewleipzig}[4][]{%
     \if@leipzig@defined{#2}
@@ -1759,7 +1759,7 @@ version 2005/12/01 or later.
 }
 %    \end{macrocode}
 %\end{macro}
-% Load the list of standard abbreviations. 
+% Load the list of standard abbreviations.
 %
 %    \begin{macrocode}
 \@ifpackageloaded{glossaries}{%
@@ -1770,7 +1770,7 @@ version 2005/12/01 or later.
   \ifleipzig@nostandards\leipzigdonotindextrue\fi
   \loadglsentries{leipzig.tex}%
 %    \end{macrocode}
-% Calculate the widest name based on this set of pre-defined abbreviations. It is probably vaguely accurate; if the author needs to, they can always redefine this in the preamble. 
+% Calculate the widest name based on this set of pre-defined abbreviations. It is probably vaguely accurate; if the author needs to, they can always redefine this in the preamble.
 %
 %    \begin{macrocode}
   \glsfindwidesttoplevelname[\leipzigtype]%
@@ -1789,8 +1789,8 @@ version 2005/12/01 or later.
 %<*abbrvs>
 % \fi
 %\subsection{leipzig.tex}
-% The following is the list of pre-defined standards which are stripped and 
-% written to leipzig.tex. 
+% The following is the list of pre-defined standards which are stripped and
+% written to leipzig.tex.
 %    \begin{macrocode}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1803,8 +1803,8 @@ version 2005/12/01 or later.
 %
 %  All leipzig gloss macros are of the form {\Label}
 %
-% where Label is a capitalized version of the gloss label, which is the first 
-% argument passed to \newleipzig. In most cases, the label has been chosen 
+% where Label is a capitalized version of the gloss label, which is the first
+% argument passed to \newleipzig. In most cases, the label has been chosen
 % to match the abbreviations suggested in the Leipzig glossing rules.
 %
 % That is, \Acc{} and {\Acc} will print \textsc{acc}, etc.
@@ -1817,7 +1817,7 @@ version 2005/12/01 or later.
 \newleipzig{acc}{acc}{ac\-cusa\-tive}		%accusative
 \newleipzig{adj}{adj}{ad\-jec\-tive}			%adjective
 \newleipzig{adv}{adv}{ad\-ver\-bial}		%adverb(ial)
-\newleipzig{aarg}{a}{agent}			%agent-like argument of 
+\newleipzig{aarg}{a}{agent}			%agent-like argument of
 									%canonical transitive verb
 \newleipzig{agr}{agr}{agreement}		%agreement
 \newleipzig{all}{all}{al\-la\-tive}			%allative
@@ -1889,7 +1889,7 @@ version 2005/12/01 or later.
 \newleipzig{sbj}{sbj}{subject}          		%subject
 \newleipzig{subj}{subj}{sub\-junc\-tive}    	%subjunctive
 \newleipzig{sg}{sg}{singular}           		%singular
-\newleipzig{sarg}{s}{argument of intransitive verb}  
+\newleipzig{sarg}{s}{argument of intransitive verb}
                                         %single argument of intransitive verb
 \newleipzig{top}{top}{topic}            		%topic
 \newleipzig{tr}{tr}{tran\-si\-tive}         		%transitive
@@ -1932,7 +1932,7 @@ version 2005/12/01 or later.
   \setlength{\glspagelistwidth}{0.1\hsize}
 }{}
 %    \end{macrocode}
-% Super original had |\begin{supertabular}{lp{\glsdescwidth}}|. I added the |@{}| on either 
+% Super original had |\begin{supertabular}{lp{\glsdescwidth}}|. I added the |@{}| on either
 % side, so it doesn't indent.
 %
 % |\glossentrystretch| is defined by leipzig. Provide a hook to increase space between entries.
@@ -1960,18 +1960,18 @@ version 2005/12/01 or later.
     \tabularnewline
   }%
 %    \end{macrocode}
-% The normal super style suppresses the name of subentries, but we probably do 
+% The normal super style suppresses the name of subentries, but we probably do
 % not want that.
 %    \begin{macrocode}
   \renewcommand{\subglossentry}[3]{%
-     \glsentryitem{##2}\glstarget{##2}{\glossentryname{##2}} & 
+     \glsentryitem{##2}\glstarget{##2}{\glossentryname{##2}} &
     \leipzig@glossentrydesc{##2}%
      \glspostdescription%
      %\space##3% no number list
      \tabularnewline
   }%
   \glsnogroupskiptrue
-  \ifglsnogroupskip 
+  \ifglsnogroupskip
     \renewcommand*{\glsgroupskip}{}%
   \else
     \renewcommand*{\glsgroupskip}{& \tabularnewline}%
