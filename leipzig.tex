@@ -12,7 +12,7 @@
 %% See http://www.latex-project.org/lppl.txt
 %% ----------------------------------------------------------------
 %% 
-%% Copyright (C) 2017 by Natalie Weber <natalie.a.weber@gmail.com>
+%% Copyright (C) 2019 by Natalie Weber <natalie.a.weber@gmail.com>
 %% 
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3
@@ -48,12 +48,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+\newleipzig{aarg}{a}{agent} %agent-like argument of
 \newleipzig{abl}{abl}{ab\-la\-tive} %ablative
 \newleipzig{abs}{abs}{ab\-so\-lu\-tive} %absolutive
 \newleipzig{acc}{acc}{ac\-cusa\-tive} %accusative
 \newleipzig{adj}{adj}{ad\-jec\-tive} %adjective
 \newleipzig{adv}{adv}{ad\-ver\-bial} %adverb(ial)
-\newleipzig{aarg}{a}{agent} %agent-like argument of
 \newleipzig{agr}{agr}{agreement} %agreement
 \newleipzig{all}{all}{al\-la\-tive} %allative
 \newleipzig{antip}{antip}{anti\-pas\-sive} %antipassive
@@ -101,8 +101,8 @@
 \newleipzig{nom}{nom}{nom\-in\-ative}        %nominative
 \newleipzig{obj}{obj}{object}            %object
 \newleipzig{obl}{obl}{ob\-lique}           %oblique
-\newleipzig{pass}{pass}{passive}        %passive
 \newleipzig{parg}{p}{patient}            %patient
+\newleipzig{pass}{pass}{passive}        %passive
 \newleipzig{pfv}{pfv}{per\-fec\-tive}        %perfective
 \newleipzig{pl}{pl}{plural}              %plural
 \newleipzig{poss}{poss}{possessive}      %possessive
@@ -121,14 +121,20 @@
 \newleipzig{refl}{refl}{reflexive}       %reflexive
 \newleipzig{rel}{rel}{relative}          %relative
 \newleipzig{res}{res}{re\-sul\-ta\-tive}       %resultative
-\newleipzig{sbj}{sbj}{subject}           %subject
-\newleipzig{subj}{subj}{sub\-junc\-tive}     %subjunctive
-\newleipzig{sg}{sg}{singular}            %singular
 \newleipzig{sarg}{s}{argument of intransitive verb}
                                         %single argument of intransitive verb
+\newleipzig{sbj}{sbj}{subject}           %subject
+\newleipzig{sbjv}{sbjv}{sub\-junc\-tive}     %subjunctive
+\newleipzig{sg}{sg}{singular}            %singular
 \newleipzig{top}{top}{topic}             %topic
 \newleipzig{tr}{tr}{tran\-si\-tive}          %transitive
 \newleipzig{voc}{voc}{voc\-ative}          %vocative
+
+%%  For backwards compatibility with older versions of the leipzig package,
+%%  where `subjunctive' was incorrectly abbreviated to SUBJ.
+
+\providecommand{\Subj}{}
+\let\Subj\Sbjv
 
 %%  Define short versions of person + number:
 \newleipzig{first}{1}{first person}%
@@ -146,7 +152,7 @@
 \newcommand{\Tpl}{{\Third}{\Pl}}%
 
 %% 
-%% Copyright (C) 2017 by Natalie Weber <natalie.a.weber@gmail.com>
+%% Copyright (C) 2019 by Natalie Weber <natalie.a.weber@gmail.com>
 %% 
 %% This work may be distributed and/or modified under the
 %% conditions of the LaTeX Project Public License, either version 1.3

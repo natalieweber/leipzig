@@ -39,7 +39,7 @@ Released under the LaTeX Project Public License v1.3c or later
 See http://www.latex-project.org/lppl.txt
 ----------------------------------------------------------------
 
-Copyright (C) 2017 by Natalie Weber <natalie.a.weber@gmail.com>
+Copyright (C) 2019 by Natalie Weber <natalie.a.weber@gmail.com>
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3
@@ -66,7 +66,7 @@ and the derived files
 \endpreamble
 \postamble
 
-Copyright (C) 2017 by Natalie Weber <natalie.a.weber@gmail.com>
+Copyright (C) 2019 by Natalie Weber <natalie.a.weber@gmail.com>
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3
@@ -106,7 +106,7 @@ version 2005/12/01 or later.
 %<package>\NeedsTeXFormat{LaTeX2e}[1996/10/24]%
 %<package>\ProvidesPackage{leipzig}%
 %<*package>
-    [2019/06/09 v2.2 Leipzig package for linguistic abbreviations]%
+    [2019/10/19 v2.3 Leipzig package for linguistic abbreviations]%
 %\AtBeginDocument{%
 %  \MakeShortVerb{\|}
 %  \DeleteShortVerb{"}}
@@ -142,6 +142,12 @@ version 2005/12/01 or later.
 \newleipzig{verbz}{vb}{verbalizer}%
 \newcommand{\Fdui}{{\First}{\Du}.{\Inc}}%
 \newcommand{\refp}[1]{(\protect\ref{#1})}%
+\newcommand{\exbox}[1]{\par\addvspace{\baselineskip}
+\noindent\framebox{\vtop{\parindent=0pt\noindent #1}}
+	\par\addvspace{\baselineskip}}
+\newcommand{\warnbox}[1]{\par\addvspace{\baselineskip}
+\noindent\llap{\textbf{!}\quad}\framebox{\vtop{\noindent #1}}
+	\par\addvspace{\baselineskip}}
 \def\leipzig{\textsf{leipzig}}
 \def\glossaries{\textsf{glossaries}}
 \EnableCrossrefs
@@ -161,7 +167,7 @@ version 2005/12/01 or later.
 %</driver>
 % \fi
 %
-%\CheckSum{855}
+%\CheckSum{860}
 %
 % \CharacterTable
 % {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -294,9 +300,9 @@ version 2005/12/01 or later.
 %makeglossaries minimalgls
 %pdflatex minimalgls.tex\end{verbatim}\end{center}
 %
-%\noindent\framebox[\textwidth]{\noindent\vbox{\textbf{Notes:}\begin{compactitem}
+%\exbox{\textbf{Notes:}\begin{compactitem}
 %\item \texttt{makeglossaries} takes a filename with \emph{no} \texttt{.tex} extension.
-%\end{compactitem}}}
+%\end{compactitem}}
 %\smallskip
 %
 %\texttt{makeglossaries} is a perl script which comes bundled with \glossaries{} and which does some smart business of determining whether to build the glossaries using \texttt{makeindex} or \texttt{xindy}. If your system doesn't recognise the command \texttt{perl} then it's likely you don't have Perl installed. Although it is possible to run \texttt{makeindex} directly instead, this creates more work on your part in setting various parameters, and some options in \glossaries{} may be unavailable. I highly recommend that you download \texttt{perl} and use \texttt{makeglossaries}. For Windows, I recommend \href{Strawberry Perl}{http://strawberryperl.com/}. 
@@ -531,7 +537,7 @@ version 2005/12/01 or later.
 %
 %If you load the \textsf{hyperref} or \textsf{html} packages prior to loading the \glossaries{} package, the |\gls|-like and |\glstext|-like commands will automatically have hyperlinks to the relevant glossary entry, unless the \texttt{hyper} option has been switched off. There are many ways to affect the \texttt{hyper} option.
 %
-%\begin{center}\framebox[\textwidth]{\noindent\vbox{\textbf{Note:} if you use \textsf{hyperref}, then \leipzig{} must be loaded \emph{after} \textsf{hyperref}.}}\end{center}
+%\exbox{\textbf{Note:} if you use \textsf{hyperref}, then \leipzig{} must be loaded \emph{after} \textsf{hyperref}.}
 %
 %\DescribeMacro{\glsdisablehyper}
 %\DescribeMacro{\glsenablehyper}
@@ -727,8 +733,7 @@ version 2005/12/01 or later.
 %
 %\section{Multiple glossaries}\label{sec:multiple}
 %
-%\noindent\framebox[\textwidth]{\noindent\vbox{\noindent{} See \autoref{app:multiple} for an example of a book-like document with multiple glossaries.}}
-%\smallskip
+%\exbox{See \autoref{app:multiple} for an example of a book-like document with multiple glossaries.}
 %
 %By default, gloss abbreviations are put into the \texttt{main} glossary. (Actually they are put into the  \cs{glsdefaulttype} glossary, which is usually set to \texttt{main}.) The \hbox{[glosses]} option creates a new glossary named \texttt{leipzig}, via:
 %
@@ -779,17 +784,40 @@ version 2005/12/01 or later.
 %|\makeglossaries|\xe
 %
 %
-%\noindent\framebox[\textwidth]{\noindent\vbox{\textbf{Note:} if you use this method to set \texttt{inline} as the style for every glossary, then no glossary will have a section header.}}
+%\exbox{\textbf{Note:} if you use this method to set \texttt{inline} as the style for every glossary, then no glossary will have a section header.}
 %
 %\iffalse Examples of how to use acronyms and symbols options to create new glossaries.\fi
 %
 %\section{FAQ}
 %
-%\begin{description}
-%\item[Q:] Why don't the abbreviations display in smallcaps?
-%\item[A:] Did you define abbreviations using ALL CAPS for the short form? The short form is displayed in \cs{leipzigfont}, which uses |\textsc|, but |\textsc| cannot make smallcaps out of capital letters: |\textsc{abc}| produces \textsc{abc}, but |\textsc{ABC}| produces \textsc{ABC}. Solution: change the \cs{newleipzig} definitions to use lowercase letters in the second argument.
-%\item[A:] Not all font families contain a smallcaps font. For instance, only some version of Times New Roman contain a smallcaps font; the versions on Windows XP and Mac OS X do not. Solution: try changing the smallcaps font, or at least using |\usepackage[T1]{fontenc}| in your preamble.
-%\end{description} 
+%\subsection{My abbreviations don't display in smallcaps!}
+%
+%\begin{itemize}
+%\item Did you define abbreviations using ALL CAPS for the short form? 
+%
+%The short form is displayed in \cs{leipzigfont}, which uses |\textsc|, but |\textsc| cannot make smallcaps out of capital letters: |\textsc{abc}| produces \textsc{abc}, but |\textsc{ABC}| produces \textsc{ABC}. 
+%
+%Solution: change the \cs{newleipzig} definitions to use lowercase letters in the second argument.
+%
+%\item Does |\leipzigfont| contain a smallcaps font?
+%
+%It may surprise you to learn that not all font families contain a smallcaps font. To use Times New Roman as an example: newer versions of this font family contain a smallcaps font, but some older versions do not (for example, on Windows XP or Mac OS X). Usually, a quick google can tell you if a font contains smallcaps or not (be sure to search for your particular font on your particular operating system.) 
+%
+%Solution: try changing the font. You can compile using Xe\LaTeX{} and use |\usepackage[T1]{fontenc}| in your preamble to set a different font for smallcaps.
+%
+%As an example, TeX Gyre Termes is an open source font which includes smallcaps and can be downloaded for free. The following code in your preamble will use TeX Gyre Termes for smallcaps, and Times New Roman otherwise:
+%
+%\end{itemize} 
+%
+%\exbox{%
+%    \textbackslash{}setmainfont[Mapping=tex-text,\%
+%    
+%        ~~~~SmallCapsFont=\{TeX Gyre Termes\},\%
+%        
+%        ~~~~SmallCapsFeatures=\{Letters=SmallCaps\}]\%
+%        
+%        ~~~~\{Times New Roman\} 
+%}
 %
 % \begin{thebibliography}{9}
 % \bibitem{bic08} Bickel, Balthasar, Bernard Comrie, and Martin Haspelmath. (2008). ``The Leipzig Glossing Rules. Conventions for Interlinear Morpheme by Morpheme Glosses.'' Revised version of February 2008. Department of Linguistics, Max Plank Institute for Evolutionary Anthropology. Retreived 30 June 2012: \url{http://www.eva.mpg.de/lingua/resources/glossing-rules.php}.
@@ -876,7 +904,7 @@ version 2005/12/01 or later.
 % \verb+\Rel{}+ & \sc rel & relative\\        
 % \verb+\Res{}+ & \sc res & resultative\\     
 % \verb+\Sbj{}+ & \sc sbj & subject\\         
-% \verb+\Subj{}+ & \sc subj & subjunctive\\   
+% \verb+\Sbjv{}+ & \sc sbjv & subjunctive\\   
 % \verb+\Sg{}+ & \sc sg & singular\\          
 % \verb+\Sarg{}+ & \sc s & argument of intransitive argument\\  
 % \verb+\Top{}+ & \sc top & topic\\           
@@ -1745,6 +1773,7 @@ version 2005/12/01 or later.
   }
 %    \end{macrocode}
 %\changes{2.2}{2019/06/09}{Added definition of \cs{if@leipzig@defined} here. This fixes an error that occurred if \cs{renewcommand} was used with package option [noglossaries].}
+%\changes{v2.3}{2019/10/18}{Changed abbreviation of `subjunctive' from SUBJ to SBJV.}
 %    \begin{macrocode}
   \def\if@leipzig@defined#1{%
     \uppercase\expandafter{\expandafter\ifcsname\@car#1\@nil}\@cdr#1\@nil\endcsname
@@ -1812,13 +1841,13 @@ version 2005/12/01 or later.
 % In a few cases, the label does not match the abbreviation, because the
 % macro that would have been created is already defined in LaTeX.
 
+\newleipzig{aarg}{a}{agent}			%agent-like argument of 
+									%canonical transitive verb
 \newleipzig{abl}{abl}{ab\-la\-tive}			%ablative
 \newleipzig{abs}{abs}{ab\-so\-lu\-tive}		%absolutive
 \newleipzig{acc}{acc}{ac\-cusa\-tive}		%accusative
 \newleipzig{adj}{adj}{ad\-jec\-tive}			%adjective
 \newleipzig{adv}{adv}{ad\-ver\-bial}		%adverb(ial)
-\newleipzig{aarg}{a}{agent}			%agent-like argument of 
-									%canonical transitive verb
 \newleipzig{agr}{agr}{agreement}		%agreement
 \newleipzig{all}{all}{al\-la\-tive}			%allative
 \newleipzig{antip}{antip}{anti\-pas\-sive}		%antipassive
@@ -1866,8 +1895,8 @@ version 2005/12/01 or later.
 \newleipzig{nom}{nom}{nom\-in\-ative}       	%nominative
 \newleipzig{obj}{obj}{object}           		%object
 \newleipzig{obl}{obl}{ob\-lique}          		%oblique
-\newleipzig{pass}{pass}{passive}       		%passive
 \newleipzig{parg}{p}{patient}           		%patient
+\newleipzig{pass}{pass}{passive}       		%passive
 \newleipzig{pfv}{pfv}{per\-fec\-tive}       		%perfective
 \newleipzig{pl}{pl}{plural}             		%plural
 \newleipzig{poss}{poss}{possessive}     	%possessive
@@ -1886,14 +1915,21 @@ version 2005/12/01 or later.
 \newleipzig{refl}{refl}{reflexive}      		%reflexive
 \newleipzig{rel}{rel}{relative}         		%relative
 \newleipzig{res}{res}{re\-sul\-ta\-tive}      		%resultative
-\newleipzig{sbj}{sbj}{subject}          		%subject
-\newleipzig{subj}{subj}{sub\-junc\-tive}    	%subjunctive
-\newleipzig{sg}{sg}{singular}           		%singular
 \newleipzig{sarg}{s}{argument of intransitive verb}  
                                         %single argument of intransitive verb
+\newleipzig{sbj}{sbj}{subject}          		%subject
+\newleipzig{sbjv}{sbjv}{sub\-junc\-tive}    	%subjunctive
+\newleipzig{sg}{sg}{singular}           		%singular
 \newleipzig{top}{top}{topic}            		%topic
 \newleipzig{tr}{tr}{tran\-si\-tive}         		%transitive
 \newleipzig{voc}{voc}{voc\-ative}         		%vocative
+
+%%  For backwards compatibility with older versions of the leipzig package,
+%%  where `subjunctive' was incorrectly abbreviated to SUBJ.
+
+\providecommand{\Subj}{}
+\let\Subj\Sbjv
+
 
 %%  Define short versions of person + number:
 \newleipzig{first}{1}{first person}%
