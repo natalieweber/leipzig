@@ -1743,14 +1743,9 @@ version 2005/12/01 or later.
 }
 \def\renew@leipzig#1#2{%
   \ifcsname glo@\glsdetoklabel{#2}@name\endcsname
-    \csundef{glo@\glsdetoklabel{#2}@name}
+    \csundef{glo@\glsdetoklabel{#2}@name}%
   \fi
-  \if\relax\detokenize{#2}\relax
-    \expandafter\@firstoftwo
-  \else
-    \expandafter\@secondoftwo
-  \fi
-  {\newleipzig{#2}}{\newleipzig[#1]{#2}}%
+  \newleipzig[#1]{#2}%
 }%
 }%
 %    \end{macrocode}
