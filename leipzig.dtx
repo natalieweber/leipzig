@@ -1743,14 +1743,9 @@ version 2005/12/01 or later.
 }
 \def\renew@leipzig#1#2{%
   \ifcsname glo@\glsdetoklabel{#2}@name\endcsname
-    \csundef{glo@\glsdetoklabel{#2}@name}
+    \csundef{glo@\glsdetoklabel{#2}@name}%
   \fi
-  \if\relax\detokenize{#2}\relax
-    \expandafter\@firstoftwo
-  \else
-    \expandafter\@secondoftwo
-  \fi
-  {\newleipzig{#2}}{\newleipzig[#1]{#2}}%
+  \newleipzig[#1]{#2}%
 }%
 }%
 %    \end{macrocode}
@@ -1768,7 +1763,6 @@ version 2005/12/01 or later.
        \PackageError{leipzig}
          {Abbreviation `#2' undefined}
          {No `#2` abbreviation is defined, use \string\newleipzig}%
-       \@gobbletwo
       }%
   }
 %    \end{macrocode}
@@ -1783,7 +1777,7 @@ version 2005/12/01 or later.
     \fi
   }
   \def\@newleipzig(#1)#2#3\@nil{%
-    \uppercase{\expandafter\gdef\csname #2}#3\endcsname{\leipzigfont{#1}}
+    \uppercase{\expandafter\gdef\csname #2}#3\endcsname{\leipzigfont{#1}}%
   }%
 }
 %    \end{macrocode}
